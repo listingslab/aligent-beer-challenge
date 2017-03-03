@@ -1,5 +1,5 @@
 ![alt text](https://raw.githubusercontent.com/listingslab/aligent-beer-challenge/master/public/assets/img/beer_challenge.png "Aligent Beer Challenge")
-# Aligent Beer Challenge vs 1.0.2
+# Aligent Beer Challenge vs 1.0.3
 
 Developed by listingslab for the Aligent Consulting as a recruitment challenge, March 2017. This is a React Application (/src) which compiles into a standalone HTML folder called build. This is a complete Webpack build development environment which enables fast in-editor pre-testing of the React app against lint rules for both JavaScript and SCSS and enables multi-device testing while we develop and compile the app.
 

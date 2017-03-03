@@ -1,6 +1,6 @@
 {
   "name": "aligent-beer-challenge",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "BreweryDB has a simple API that returns JSON (documentation here http://www.brewerydb.com/developers/docs ). We would like you to use HTML, CSS and Javascript to read the API and display it in an organized way. In addition, you should add in some sort of sorting mechanic to the front-end. Feel free to use any frameworks you would like to achieve the task.",
   "main": "index.js",
   "private": true,
