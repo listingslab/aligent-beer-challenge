@@ -9,6 +9,14 @@ BreweryDB has a simple API that returns JSON (documentation here http://www.brew
 
 ---
 
+## PHP Proxy
+
+In order to get round the problem of cross domain loading of JSON from a server without Access-Control-Allow-Origin setup (as in the case of BreweryDB), we implemented a proxy solution called Simple PHP Proxy (http://benalman.com/projects/php-simple-proxy/). It's a single PHP file residing here: http://jqueryresume.com/proxy.php?url=<api url>
+
+Because our JavaScript is running on the same domain, the proxy makes it possible to load JSON from the API without contravening the Cross Origin rules.
+
+---
+
 ## Developer Installation
 
 cd to your working directory (ours is ~/node) and do the following. Clone the directory,

@@ -1,3 +1,4 @@
+/* global cms */
 /**
  * Created by Chris Dorward on 20/01/2017
  * containers/App
@@ -11,18 +12,10 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    const api = new API();
-    api.getEvents(this.apiEventsCallback.bind(this));
+    cms = new API();
     this.state = {
       eventsLoaded: false
     };
-  }
-
-  apiEventsCallback(eventsData) {
-    this.setState({
-      eventsLoaded: true,
-      eventsData
-    });
   }
 
   render() {
