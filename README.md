@@ -1,11 +1,19 @@
 ![alt text](https://raw.githubusercontent.com/listingslab/aligent-beer-challenge/master/public/assets/img/beer_challenge.png "Aligent Beer Challenge")
-# Aligent Beer Challenge vs 1.0.2
+# Aligent Beer Challenge vs 1.0.3
 
 Developed by listingslab for the Aligent Consulting as a recruitment challenge, March 2017. This is a React Application (/src) which compiles into a standalone HTML folder called build. This is a complete Webpack build development environment which enables fast in-editor pre-testing of the React app against lint rules for both JavaScript and SCSS and enables multi-device testing while we develop and compile the app.
 
 ## The Challenge
 
 BreweryDB has a simple API that returns JSON (documentation here http://www.brewerydb.com/developers/docs ). We would like you to use HTML, CSS and Javascript to read the API and display it in an organized way. In addition, you should add in some sort of sorting mechanic to the front-end. Feel free to use any frameworks you would like to achieve the task.
+
+---
+
+## PHP Proxy
+
+In order to get round the problem of cross domain loading of JSON from a server without Access-Control-Allow-Origin setup (as in the case of BreweryDB), we implemented a proxy solution called Simple PHP Proxy (http://benalman.com/projects/php-simple-proxy/). It's a single PHP file residing here: http://jqueryresume.com/proxy.php?url=<api url>
+
+Because our JavaScript is running on the same domain, the proxy makes it possible to load JSON from the API without contravening the Cross Origin rules.
 
 ---
 

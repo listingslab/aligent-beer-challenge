@@ -1,0 +1,42 @@
+/**
+ * Created by Chris on 03/03/2017
+ * components/Breweries/Breweries
+ */
+
+@import '../../styles/vars.scss';
+
+.breweries {
+
+}
+
+/* =====  Media Queries for responsiveness  ===== */
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+  .breweries {
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  .breweries {
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .breweries {
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  .breweries {
+  }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  .breweries {
+  }
+}
