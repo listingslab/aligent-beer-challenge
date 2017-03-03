@@ -6,7 +6,8 @@
 
 import React, { Component } from 'react';
 import Loader from '../../components/Loader/Loader';
-import { Panel, Grid, Col, Row } from 'react-bootstrap';
+import { Panel, Grid, Col, Row, Jumbotron, Button } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 import './Events.scss';
 
 class Events extends Component {
@@ -50,10 +51,8 @@ class Events extends Component {
     const latlngbounds = new google.maps.LatLngBounds();
     for (let i = 0; i < this.eventsArr.length; i += 1) {
       if (this.eventsArr[i].countryIsoCode === 'US') {
-
         const images = this.eventsArr[i].images || '';
         const icon = images.icon || '/img/no-image.png';
-        console.log(icon);
         const place = { lat: this.eventsArr[i].latitude, lng: this.eventsArr[i].longitude };
         const marker = new google.maps.Marker({
           position: place,
@@ -67,6 +66,9 @@ class Events extends Component {
   }
 
   render() {
+    const newRoute = (route) => {
+      browserHistory.push(route);
+    };
     let content = null;
     if (!this.state.eventsLoaded) {
       content = (
@@ -91,6 +93,28 @@ class Events extends Component {
       }
       content = (
         <div className="container">
+
+          <Jumbotron>
+
+            <span className="pull-right">&nbsp;</span>
+            <Button
+              className="btn-lg pull-right"
+              bsStyle="default"
+              onClick={() => newRoute ('/brewery-db')}
+            >BREWERY DB</Button>
+
+          <span className="pull-right">&nbsp;</span>
+            <Button
+              className="btn-lg pull-right"
+              bsStyle="default"
+              onClick={() => newRoute ('/')}
+            >HOME</Button>
+
+
+          <h2>CRAFT BEER EVENTS, United States</h2>
+
+          </Jumbotron>
+
           <div className="container">
             <div id="event-map" className="panel">
               map

@@ -6,41 +6,4 @@
 @import '../../styles/vars.scss';
 
 .home {
-  /* border: 1px solid $ali-showborder; */
-  .jumbotron img {
-    float: right;
-  }
-
-}
-
-/* =====  Media Queries for responsiveness  ===== */
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width: 1200px) {
-  .home {
-  }
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width: 992px) {
-  .home {
-  }
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
-  .home {
-  }
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (max-width: 480px) {
-  .home {
-  }
-}
-
-/* Custom, iPhone Retina */
-@media only screen and (max-width: 320px) {
-  .home {
-  }
 }

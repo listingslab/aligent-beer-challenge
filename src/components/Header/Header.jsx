@@ -31,9 +31,7 @@ function Header(props) {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav onSelect={handleNav}>
-            <NavItem eventKey={'/events'}>EVENTS</NavItem>
-            <NavItem eventKey={'/beers'}>BEERS</NavItem>
-            <NavItem eventKey={'/breweries'}>BREWERIES</NavItem>
+            <NavItem eventKey={'/events'}>CRAFT BEER EVENTS</NavItem>
           </Nav>
           <Navbar.Form pullRight>
             <FormGroup>
@@ -53,6 +51,11 @@ function Header(props) {
 export default Header;
 
 /*
+
+<NavItem eventKey={'/beers'}>BEERS</NavItem>
+<NavItem eventKey={'/breweries'}>BREWERIES</NavItem>
+
+
 <NavDropdown title="More..." id="nav-dropdown-more">
   <MenuItem eventKey={'github'}>GitHub</MenuItem>
   <MenuItem eventKey={'other'}>Other</MenuItem>

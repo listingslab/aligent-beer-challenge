@@ -11,37 +11,25 @@ import './Footer.scss';
 
 function Footer(props) {
   // console.log(props);
-  const handleNav = (route) => {
+  const newRoute = (route) => {
     browserHistory.push(route);
   };
-
   return (
-    <div className="footer">
-      <Navbar collapseOnSelect>
-        <Navbar.Collapse>
-          <Nav onSelect={handleNav}>
+    <div className="footer container">
+
+          <Nav onSelect={newRoute}>
             <NavDropdown title="OPEN SOURCE" id="nav-dropdown-more">
-
-                <li><Link
-                  href="https://github.com/listingslab/aligent-beer-challenge.git"
-                  target="_blank"
-                >GitHub => /listingslab/aligent-beer-challenge.git</Link></li>
+              <MenuItem eventKey={'work/github'}>GitHub</MenuItem>
             </NavDropdown>
-
             <NavDropdown title="OUR WORK" id="nav-dropdown-huawei">
               <MenuItem eventKey={'work/huawei'}>Huawei</MenuItem>
+              <MenuItem eventKey={'work/cancer-council'}>Cancer Council</MenuItem>
             </NavDropdown>
 
             <NavDropdown title="LISTINGSLAB" id="nav-dropdown-listingslab">
-              <li><Link
-                href="http://listingslab.com/?square-one"
-                target="_blank"
-              >listingslab.com</Link></li>
+              <MenuItem eventKey={'work/listingslab'}>listingslab</MenuItem>
             </NavDropdown>
           </Nav>
-
-        </Navbar.Collapse>
-      </Navbar>
     </div>
   );
 }
