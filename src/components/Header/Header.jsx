@@ -29,36 +29,32 @@ function Header(props) {
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
-
         <Navbar.Collapse>
           <Nav onSelect={handleNav}>
-            <NavItem eventKey={'/'}>HOME</NavItem>
             <NavItem eventKey={'/events'}>EVENTS</NavItem>
             <NavItem eventKey={'/beers'}>BEERS</NavItem>
             <NavItem eventKey={'/breweries'}>BREWERIES</NavItem>
-
-            <NavDropdown title="More..." id="nav-dropdown-more">
-              <MenuItem eventKey={'github'}>GitHub</MenuItem>
-              <MenuItem eventKey={'other'}>Other</MenuItem>
-            </NavDropdown>
-
           </Nav>
-
           <Navbar.Form pullRight>
             <FormGroup>
               <FormControl type="text" placeholder="Search" />
             </FormGroup>
             {' '}
             <Button type="submit">
-              <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
+              <span className="glyphicon glyphicon-search" aria-hidden="true" />
             </Button>
           </Navbar.Form>
-
         </Navbar.Collapse>
-
       </Navbar>
     </div>
   );
 }
 
 export default Header;
+
+/*
+<NavDropdown title="More..." id="nav-dropdown-more">
+  <MenuItem eventKey={'github'}>GitHub</MenuItem>
+  <MenuItem eventKey={'other'}>Other</MenuItem>
+</NavDropdown>
+*/
