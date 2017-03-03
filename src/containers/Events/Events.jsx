@@ -96,13 +96,6 @@ class Events extends Component {
 
           <Jumbotron>
 
-            <span className="pull-right">&nbsp;</span>
-            <Button
-              className="btn-lg pull-right"
-              bsStyle="default"
-              onClick={() => newRoute ('/brewery-db')}
-            >BREWERY DB</Button>
-
           <span className="pull-right">&nbsp;</span>
             <Button
               className="btn-lg pull-right"
@@ -111,7 +104,7 @@ class Events extends Component {
             >HOME</Button>
 
 
-          <h2>CRAFT BEER EVENTS, United States</h2>
+          <h2>Craft Beer Events in the United States</h2>
 
           </Jumbotron>
 
