@@ -33,15 +33,7 @@ function Header(props) {
           <Nav onSelect={handleNav}>
             <NavItem eventKey={'/events'}>CRAFT BEER EVENTS</NavItem>
           </Nav>
-          <Navbar.Form pullRight>
-            <FormGroup>
-              <FormControl type="text" placeholder="Search" />
-            </FormGroup>
-            {' '}
-            <Button type="submit">
-              <span className="glyphicon glyphicon-search" aria-hidden="true" />
-            </Button>
-          </Navbar.Form>
+
         </Navbar.Collapse>
       </Navbar>
     </div>
@@ -51,6 +43,16 @@ function Header(props) {
 export default Header;
 
 /*
+
+<Navbar.Form pullRight>
+  <FormGroup>
+    <FormControl type="text" placeholder="Search" />
+  </FormGroup>
+  {' '}
+  <Button type="submit">
+    <span className="glyphicon glyphicon-search" aria-hidden="true" />
+  </Button>
+</Navbar.Form>
 
 <NavItem eventKey={'/beers'}>BEERS</NavItem>
 <NavItem eventKey={'/breweries'}>BREWERIES</NavItem>

@@ -23,26 +23,28 @@ class Home extends Component {
               onClick={() => newRoute ('/events')}
             >CRAFT BEER EVENTS</Button>
 
-          <h2>Aligent Beer Challenge</h2>
+          <h2><br />Aligent Beer Challenge</h2>
 
 
           <blockquote>
-            <p>BreweryDB has a simple API that returns JSON.
+            <p><a href="http://www.brewerydb.com/developers/docs-endpoint/beer_index" target="_blank">BreweryDB</a> has a simple API that returns JSON.
             We would like you to use HTML, CSS and Javascript to read the API
-            and display it in an organized way.</p>
-
-            <p>In addition, you should add in
+            and display it in an organized way. In addition, you should add in
             some sort of sorting mechanic to the front-end. Feel free to use any
             frameworks you would like to achieve the task.</p>
           </blockquote>
+<br />
 
-
-        <h3>A User story</h3>
+        <h3>Every user has a story</h3>
         <blockquote>
-          <p><em>As a user I want to be able to be able to find a craft-beer related
+          <p>As a user I want to be able to be able to find a craft-beer related
             event (festival, tasting... whatever)
-            somewhere interesting in the United States to attend this year.</em></p>
+            somewhere interesting in the United States to attend this year.</p>
         </blockquote>
+
+<br />
+        <h3>Open source on github</h3>
+
 
         <a  href="https://github.com/listingslab/aligent-beer-challenge"
           rel='noopener noreferrer'
