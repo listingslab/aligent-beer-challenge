@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 import API from '../utils/API';
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
       <div id="app">
         <Header />
         {children}
+        <Footer />
       </div>
     );
   }
