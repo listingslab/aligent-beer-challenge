@@ -1,0 +1,75 @@
+{
+  "name": "aligent-beer-challenge",
+  "version": "1.0.1",
+  "description": "BreweryDB has a simple API that returns JSON (documentation here http://www.brewerydb.com/developers/docs ). We would like you to use HTML, CSS and Javascript to read the API and display it in an organized way. In addition, you should add in some sort of sorting mechanic to the front-end. Feel free to use any frameworks you would like to achieve the task.",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=development webpack-dev-server --inline",
+    "build": "NODE_ENV=production webpack --config webpack.prod.config.js",
+    "elint": "eslint . --ext .js --ext .jsx --cache || true",
+    "slint": "stylelint ./src/**/**/*.scss ./src/**/*.scss --syntax scss || true",
+    "profile": "NODE_ENV=production webpack --config webpack.prod.config.js --profile --json > profile.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/listingslab/aligent-beer-challenge.git"
+  },
+  "author": "listigslab <listingslab@gmail.com>",
+  "contributors": [
+    {
+      "name": "Chris Dorward",
+      "email": "listingslab@gmail.com",
+      "url": "http://listingslab.com/aligent"
+    }
+  ],
+  "license": "UNLICENSED",
+  "dependencies": {
+    "babel-polyfill": "^6.20.0",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1",
+    "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.2",
+    "react-router": "^2.6.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.3",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
+    "babel-istanbul": "^0.12.1",
+    "babel-loader": "^6.2.8",
+    "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-preset-airbnb": "^2.1.1",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-2": "^6.18.0",
+    "clean-webpack-plugin": "^0.1.14",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.26.0",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-friendly-formatter": "^2.0.6",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-minifier": "^3.2.2",
+    "html-webpack-plugin": "^2.24.1",
+    "jsdom": "^9.8.3",
+    "json-loader": "^0.5.4",
+    "postcss-easy-import": "^1.0.1",
+    "postcss-loader": "^1.1.1",
+    "precss": "^1.4.0",
+    "style-loader": "^0.13.1",
+    "stylelint": "^7.6.0",
+    "stylelint-config-standard": "^15.0.0",
+    "stylelint-webpack-plugin": "^0.4.0",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
