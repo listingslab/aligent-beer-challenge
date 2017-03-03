@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import Loader from '../../components/Loader/Loader';
 import { Panel, Grid, Col, Row, Jumbotron, Button } from 'react-bootstrap';
+import Footer from '../../components/Footer/Footer';
 import { browserHistory } from 'react-router';
 import './Events.scss';
 
@@ -99,12 +100,13 @@ class Events extends Component {
               <Button
                 className="btn-lg pull-right"
                 bsStyle="default"
-                onClick={() => newRoute ('/')}
+                onClick={() => newRoute('/')}
               >HOME</Button>
             <h2><br />Find Craft Beer Events in the United States</h2>
               <blockquote>
                 <p>Get closer to your goal by filtering the events by stuff like
-                  which state it&apos;s in or whatever. Only States which have events show up in this dropdown</p>
+                  which state it&apos;s in or whatever.
+                </p>
               </blockquote>
             </Jumbotron>
           </div>
@@ -132,3 +134,7 @@ class Events extends Component {
 }
 
 export default Events;
+
+/*
+Only States which have events show up in this dropdown
+*/
