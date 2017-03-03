@@ -15,11 +15,11 @@ cd to your working directory (ours is ~/node) and do the following. Clone the di
 which uses a GitFlow methodology. Checkout both master and develop branches but DO NOT
 develop into them. Create a feature. Develop that. Once it's done, merge into develop.
 
-git clone git@github.com:ustwo/healthy-lunch-box.git
+git clone https://github.com/listingslab/aligent-beer-challenge.git
 npm install
 npm start
 
-Basta. That's it. You should be running a local dev environment using webpack devserver. Your App is viewable on http://localhost:8080.
+Basta. That's it. You'll be running a local dev environment using webpack devserver. Your App is viewable on http://localhost:8080.
 
 ---
 
