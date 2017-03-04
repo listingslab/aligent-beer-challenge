@@ -9,19 +9,21 @@ import './Loader.scss';
 function Loader(props) {
   return (
     <div className="loader">
+
+
         <img
           alt="Aligent"
           src="/img/aligent-beer-challenge_100.png"
           className="loader-logo"
-          height="75"
+          height="50"
         />
-
+<p>{props.loadingText}</p>
         <img
           alt="loading"
           src="/img/loader.gif"
         />
 
-        <p>{props.loadingText}</p>
+
 
     </div>
   );

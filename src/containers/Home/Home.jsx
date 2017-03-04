@@ -25,8 +25,20 @@ class Home extends Component {
           />
           <h1>Aligent Beer Challenge</h1>
 
-          <h2>Every app has a story, what&apos;s this one&apos;s?</h2>
+          <p>Click LIVE DEMO to see the following features...</p>
+          <ul>
+              <li>Loading JSON from a remote RestFUL API</li>
+              <li>Using a PHP proxy to do so</li>
+              <li>Bootstrap / CSS3 / Sass / HTML5 etc</li>
+          </ul>
 
+          <Button
+            className="btn btn-lg warning"
+            bsStyle="success"
+            onClick={() => newRoute('/events')}
+          >LIVE DEMO</Button>
+
+        <h3>Every app has a story, what&apos;s this one&apos;s?</h3>
           <blockquote>
             <p>
             <a
@@ -38,24 +50,13 @@ class Home extends Component {
             some sort of sorting mechanic to the front-end. Feel free to use any
             frameworks you would like to achieve the task.</p>
           </blockquote>
+
           <h3>Let&apos;s break that down to an Agile User Story.</h3>
           <blockquote>
-            <p>"As a user I want to be able to be able to find a craft-beer related
+            <p>&quot;As a user I want to be able to be able to find a craft-beer related
               event (festival, tasting... whatever)
-              somewhere interesting in the United States to attend this year.""</p>
+              somewhere interesting in the United States to attend this year.&quot;</p>
           </blockquote>
-
-          <h3>Cut straight to the demo?</h3>
-
-          <Button
-            to=""
-            className="btn btn-lg warning"
-            bsStyle="success"
-            onClick={() => newRoute ('/events')}
-          >
-            Find a Craft Beer Event
-          </Button>
-
         </Jumbotron>
       </div>
     );
