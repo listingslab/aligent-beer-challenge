@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
-import { Jumbotron } from 'react-bootstrap';
+import { Jumbotron, Grid, Row, Col, Panel, Well, DropdownButton, MenuItem } from 'react-bootstrap';
 import Loader from '../../components/Loader/Loader';
 
 import './Events.scss';
@@ -40,36 +40,52 @@ class Events extends Component {
     const newRoute = (route) => {
       browserHistory.push(route);
     };
-    let content = null;
+    let loader = null;
     if (!this.state.eventsLoaded) {
-      content = (
+      loader = (
         <div className="container text-center">
           <Loader loadingText="Loading Craft Beer Events ..." />
         </div>
-      );
-    } else {
-      content = (
-          <div className="container">
-          <Jumbotron>
-            <h1>LIVE DEMO</h1>
-              <blockquote>
-                <p>Find a Craft Beer realted event In the United States in 2017. Filter and sort
-                  the events shown by things like which State it&apos;s in, whether it is
-                  &nbsp;<Link
-                    to="/free"
-                    className="btn btn-info"
-                    >FREE!</Link>
-                  <br />or whatever.
-                </p>
-              </blockquote>
-            </Jumbotron>
-          </div>
       );
     }
 
     return (
       <div className="events">
-        {content}
+        <div className="container">
+          <div className="row">
+          <Grid>
+            <Row className="show-grid">
+              <Col
+                sm={12}
+                md={3}
+                className="left-col"
+              >
+                <h3>Filter and Sort</h3>
+                  <DropdownButton
+                    bsStyle="danger"
+                    title="Select State"
+                    id="dropdown-state">
+                    <MenuItem eventKey="texas">texas</MenuItem>
+                    <MenuItem eventKey="new-england">new-england</MenuItem>
+                    <MenuItem eventKey="california">california</MenuItem>
+                    <MenuItem divider />
+                    <MenuItem eventKey="4" active>Separated link</MenuItem>
+                  </DropdownButton>
+              </Col>
+              <Col
+                sm={12}
+                md={9}
+                className="right-col"
+              >
+                <Jumbotron>
+                  <h2>LIVE DEMO</h2>
+                </Jumbotron>
+              </Col>
+            </Row>
+          </Grid>
+        </div>
+        </div>
+        {loader}
       </div>
     );
   }
@@ -79,6 +95,11 @@ export default Events;
 
 /*
 Only States which have events show up in this dropdown
+
+<Link
+  to="/free"
+  className="btn btn-success pull-right"
+>FREE!</Link>
 
 <span className="pull-right">&nbsp;</span>
   <Button

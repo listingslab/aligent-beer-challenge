@@ -10,11 +10,10 @@ function PageAbout(props) {
   return (
     <div className="page-about container">
       <Jumbotron>
-        <h1>About this software</h1>
-
-          
-
-          <h3>Tech Stack</h3>
+        <h2>About this software</h2>
+        <p>Starting off with some boilerplate code we set up a new project. We've been using
+        Facebook's React JS a lot recently, so used that as our front-end JavaScript framework.</p>
+        <h4>Development Technology Stack</h4>
           <ul>
             <li>React JS</li>
             <li>Webpack</li>
