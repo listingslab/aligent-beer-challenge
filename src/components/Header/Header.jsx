@@ -22,7 +22,7 @@ function Header() {
           <Navbar.Brand>
             <Link to="/">
               <img
-                src="/img/aligent-beer-challenge_brand.png"
+                src="/img/breweryDB_logo_32.png"
                 alt="Aligent Beer Challenge"
               />
             </Link>
@@ -31,8 +31,8 @@ function Header() {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav onSelect={handleNav}>
-            <NavItem eventKey={'/about'}>About</NavItem>
-            <NavItem eventKey={'/events'}>Craft Beer Events</NavItem>
+            <NavItem eventKey={'/about'}>ABOUT</NavItem>
+            <NavItem eventKey={'/events'}>LIVE DEMO</NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

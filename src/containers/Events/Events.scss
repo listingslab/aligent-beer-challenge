@@ -6,45 +6,11 @@
 @import '../../styles/vars.scss';
 
 .events {
-  .event-panel{
-    /*height: 100px;
-    cursor: pointer;*/
+  .left-col {
+
   }
 
-  #event-map {
-    height: 400px;
-  }
-
-}
-
-/* =====  Media Queries for responsiveness  ===== */
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width: 1200px) {
-  .events {
-  }
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width: 992px) {
-  .events {
-  }
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
-  .events {
-  }
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (max-width: 480px) {
-  .events {
-  }
-}
-
-/* Custom, iPhone Retina */
-@media only screen and (max-width: 320px) {
-  .events {
+  .right-col {
+    
   }
 }

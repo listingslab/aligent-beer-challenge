@@ -5,8 +5,8 @@
  */
 
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
-import { Panel, Grid, Col, Row, Jumbotron } from 'react-bootstrap';
+import { Link, browserHistory } from 'react-router';
+import { Jumbotron, Grid, Row, Col, Panel, Well, DropdownButton, MenuItem } from 'react-bootstrap';
 import Loader from '../../components/Loader/Loader';
 
 import './Events.scss';
@@ -27,19 +27,8 @@ class Events extends Component {
     }
   }
 
-  componentDidMount() {
-    if (this.state.eventsLoaded) {
-      this.renderMap();
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.state.eventsLoaded) {
-      this.renderMap();
-    }
-  }
-
   apiEventsCallback(eventsData) {
+    this.eventsArr = eventsData.contents.data;
     cms.eventsData = eventsData;
     this.setState({
       eventsLoaded: true,
@@ -47,81 +36,77 @@ class Events extends Component {
     });
   }
 
-  renderMap() {
-    const map = new google.maps.Map(document.getElementById('event-map'), {});
-    const latlngbounds = new google.maps.LatLngBounds();
-    for (let i = 0; i < this.eventsArr.length; i += 1) {
-      if (this.eventsArr[i].countryIsoCode === 'US') {
-        const images = this.eventsArr[i].images || '';
-        const icon = images.icon || '/img/no-image.png';
-        const place = { lat: this.eventsArr[i].latitude, lng: this.eventsArr[i].longitude };
-        const marker = new google.maps.Marker({
-          position: place,
-          map
-        });
-        latlngbounds.extend(marker.position);
-      }
-    }
-    map.setCenter(latlngbounds.getCenter());
-    map.fitBounds(latlngbounds);
+  sortAndFilter() {
+    return [];
   }
 
   render() {
     const newRoute = (route) => {
       browserHistory.push(route);
     };
-    let content = null;
+    let loader = null;
     if (!this.state.eventsLoaded) {
-      content = (
+      loader = (
         <div className="container text-center">
           <Loader loadingText="Loading Craft Beer Events ..." />
         </div>
       );
-    } else {
-      this.eventsArr = cms.eventsData.contents.data;
-      const eventsPanels = [];
-      for (let i = 0; i < this.eventsArr.length; i += 1) {
-        if (this.eventsArr[i].countryIsoCode === 'US') {
-          const key = `event_${i}`;
-          eventsPanels.push(
-            <Col key={key} sm={12} md={6}>
-              <Panel className="event-panel">
-                <h5>{this.eventsArr[i].name}</h5>
-              </Panel>
-            </Col>
-          );
-        }
-      }
-      content = (
-        <div className="container">
-          <div className="container">
-          <Jumbotron>
-            <h2>Craft Beer Events in the United States</h2>
-              <blockquote>
-                <p>Filter the events by stuff like
-                  which state it&apos;s in or whatever.
-                </p>
-              </blockquote>
-            </Jumbotron>
-          </div>
-
-          <div className="container">
-            <div id="event-map" className="panel">
-              map
-            </div>
-          </div>
-          <Grid>
-            <Row className="show-grid">
-              {eventsPanels}
-            </Row>
-          </Grid>
-        </div>
-      );
     }
+
+    let eventList = this.sortAndFilter();
+    console.log ('The Sorted Array');
+    eventList.push (
+      <Panel>
+        panel
+      </Panel>
+    );
 
     return (
       <div className="events">
-        {content}
+        <div className="container">
+          <div className="row">
+          <Grid>
+            <Row className="show-grid">
+              <Col
+                sm={12}
+                md={3}
+                className="left-col"
+              >
+                <h3>Filter or sort events</h3>
+                  <p><DropdownButton
+                    bsStyle="danger"
+                    title="Select State"
+                    id="dropdown-state">
+                    <MenuItem eventKey="texas">texas</MenuItem>
+                    <MenuItem eventKey="new-england">new-england</MenuItem>
+                    <MenuItem eventKey="california">california</MenuItem>
+                  </DropdownButton>&nbsp;
+                  <DropdownButton
+                      bsStyle="danger"
+                      title="Select Price"
+                      id="dropdown-state">
+                      <MenuItem eventKey="price-free">FREE</MenuItem>
+                      <MenuItem eventKey="price-1-10">$1 - $10</MenuItem>
+                      <MenuItem eventKey="price-11-99">$11 - $99</MenuItem>
+                      <MenuItem eventKey="price-100plus">$100 +</MenuItem>
+                    </DropdownButton>
+                  </p>
+                  {eventList}
+              </Col>
+              <Col
+                sm={12}
+                md={9}
+                className="right-col"
+              >
+                <Jumbotron>
+                  <h2>LIVE DEMO</h2>
+                </Jumbotron>
+              </Col>
+            </Row>
+          </Grid>
+        </div>
+        </div>
+        {loader}
       </div>
     );
   }
@@ -131,6 +116,11 @@ export default Events;
 
 /*
 Only States which have events show up in this dropdown
+
+<Link
+  to="/free"
+  className="btn btn-success pull-right"
+>FREE!</Link>
 
 <span className="pull-right">&nbsp;</span>
   <Button
