@@ -5,10 +5,10 @@
  */
 
 import React, { Component } from 'react';
-import Loader from '../../components/Loader/Loader';
-import { Panel, Grid, Col, Row, Jumbotron, Button } from 'react-bootstrap';
-import Footer from '../../components/Footer/Footer';
 import { browserHistory } from 'react-router';
+import { Panel, Grid, Col, Row, Jumbotron } from 'react-bootstrap';
+import Loader from '../../components/Loader/Loader';
+
 import './Events.scss';
 
 class Events extends Component {
@@ -74,7 +74,7 @@ class Events extends Component {
     if (!this.state.eventsLoaded) {
       content = (
         <div className="container text-center">
-          <Loader loadingText="Loading Events..." />
+          <Loader loadingText="Loading Craft Beer Events ..." />
         </div>
       );
     } else {
@@ -96,15 +96,9 @@ class Events extends Component {
         <div className="container">
           <div className="container">
           <Jumbotron>
-            <span className="pull-right">&nbsp;</span>
-              <Button
-                className="btn-lg pull-right"
-                bsStyle="default"
-                onClick={() => newRoute('/')}
-              >HOME</Button>
-            <h2><br />Find Craft Beer Events in the United States</h2>
+            <h2>Craft Beer Events in the United States</h2>
               <blockquote>
-                <p>Get closer to your goal by filtering the events by stuff like
+                <p>Filter the events by stuff like
                   which state it&apos;s in or whatever.
                 </p>
               </blockquote>
@@ -137,4 +131,12 @@ export default Events;
 
 /*
 Only States which have events show up in this dropdown
+
+<span className="pull-right">&nbsp;</span>
+  <Button
+    className="btn-lg pull-right"
+    bsStyle="default"
+    onClick={() => newRoute('/')}
+  >HOME</Button>
+
 */

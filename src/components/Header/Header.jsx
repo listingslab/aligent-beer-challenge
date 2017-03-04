@@ -4,12 +4,12 @@
  */
 
 import React from 'react';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Button, FormGroup, FormControl } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
 //
 import './Header.scss';
 
-function Header(props) {
+function Header() {
   // console.log(props);
   const handleNav = (route) => {
     browserHistory.push(route);
@@ -22,7 +22,7 @@ function Header(props) {
           <Navbar.Brand>
             <Link to="/">
               <img
-                src="/img/beer_challenge.png"
+                src="/img/aligent-beer-challenge_brand.png"
                 alt="Aligent Beer Challenge"
               />
             </Link>
@@ -31,9 +31,9 @@ function Header(props) {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav onSelect={handleNav}>
-            <NavItem eventKey={'/events'}>CRAFT BEER EVENTS</NavItem>
+            <NavItem eventKey={'/about'}>About</NavItem>
+            <NavItem eventKey={'/events'}>Craft Beer Events</NavItem>
           </Nav>
-
         </Navbar.Collapse>
       </Navbar>
     </div>
