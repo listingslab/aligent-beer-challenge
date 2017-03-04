@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
 import { Jumbotron, Grid, Row, Col, Panel, Well, DropdownButton, MenuItem } from 'react-bootstrap';
 import Loader from '../../components/Loader/Loader';
+import FilterSort from '../../components/FilterSort/FilterSort';
 
 import './Events.scss';
 
@@ -72,35 +73,18 @@ class Events extends Component {
                 md={3}
                 className="left-col"
               >
-                <h3>Filter or sort events</h3>
-                  <p><DropdownButton
-                    bsStyle="danger"
-                    title="Select State"
-                    id="dropdown-state">
-                    <MenuItem eventKey="texas">texas</MenuItem>
-                    <MenuItem eventKey="new-england">new-england</MenuItem>
-                    <MenuItem eventKey="california">california</MenuItem>
-                  </DropdownButton>&nbsp;
-                  <DropdownButton
-                      bsStyle="danger"
-                      title="Select Price"
-                      id="dropdown-state">
-                      <MenuItem eventKey="price-free">FREE</MenuItem>
-                      <MenuItem eventKey="price-1-10">$1 - $10</MenuItem>
-                      <MenuItem eventKey="price-11-99">$11 - $99</MenuItem>
-                      <MenuItem eventKey="price-100plus">$100 +</MenuItem>
-                    </DropdownButton>
-                  </p>
-                  {eventList}
+                <FilterSort />
               </Col>
               <Col
                 sm={12}
                 md={9}
                 className="right-col"
               >
-                <Jumbotron>
-                  <h2>LIVE DEMO</h2>
-                </Jumbotron>
+
+                <div className="container">
+                  <h3>Live demo</h3>
+                </div>
+
               </Col>
             </Row>
           </Grid>
