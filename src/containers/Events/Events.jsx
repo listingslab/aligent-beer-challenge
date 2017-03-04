@@ -28,6 +28,7 @@ class Events extends Component {
   }
 
   apiEventsCallback(eventsData) {
+    this.eventsArr = eventsData.contents.data;
     cms.eventsData = eventsData;
     this.setState({
       eventsLoaded: true,
@@ -35,6 +36,9 @@ class Events extends Component {
     });
   }
 
+  sortAndFilter() {
+    return [];
+  }
 
   render() {
     const newRoute = (route) => {
@@ -49,6 +53,14 @@ class Events extends Component {
       );
     }
 
+    let eventList = this.sortAndFilter();
+    console.log ('The Sorted Array');
+    eventList.push (
+      <Panel>
+        panel
+      </Panel>
+    );
+
     return (
       <div className="events">
         <div className="container">
@@ -60,17 +72,26 @@ class Events extends Component {
                 md={3}
                 className="left-col"
               >
-                <h3>Filter and Sort</h3>
-                  <DropdownButton
+                <h3>Filter or sort events</h3>
+                  <p><DropdownButton
                     bsStyle="danger"
                     title="Select State"
                     id="dropdown-state">
                     <MenuItem eventKey="texas">texas</MenuItem>
                     <MenuItem eventKey="new-england">new-england</MenuItem>
                     <MenuItem eventKey="california">california</MenuItem>
-                    <MenuItem divider />
-                    <MenuItem eventKey="4" active>Separated link</MenuItem>
-                  </DropdownButton>
+                  </DropdownButton>&nbsp;
+                  <DropdownButton
+                      bsStyle="danger"
+                      title="Select Price"
+                      id="dropdown-state">
+                      <MenuItem eventKey="price-free">FREE</MenuItem>
+                      <MenuItem eventKey="price-1-10">$1 - $10</MenuItem>
+                      <MenuItem eventKey="price-11-99">$11 - $99</MenuItem>
+                      <MenuItem eventKey="price-100plus">$100 +</MenuItem>
+                    </DropdownButton>
+                  </p>
+                  {eventList}
               </Col>
               <Col
                 sm={12}
