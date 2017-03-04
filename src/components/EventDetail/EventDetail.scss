@@ -9,8 +9,29 @@
   /* border: 1px solid red; */
 
   .detail-img{
-    /* border: 1px solid red; */
-    width: 100%;
     border-radius: 6px;
+    margin-bottom: 10px;
+  }
+
+  .detail-links{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .detail-left{
+    width: 69%;
+    float: left;
+    min-width: 200px;
+    margin-right: 3%;
+  }
+
+  .detail-right{
+    width: 28%;
+    float: left;
+    min-width: 200px;
+  }
+
+  .detail-clear{
+    clear: both;
   }
 }

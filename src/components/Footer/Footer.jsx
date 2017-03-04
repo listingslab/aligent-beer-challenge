@@ -22,7 +22,7 @@ function Footer() {
           />
       </a>
       <br />
-      <small>version 1.1.0</small>
+      <small>version 1.1.0, by listingslab</small>
       <br />
     </div>
   );
