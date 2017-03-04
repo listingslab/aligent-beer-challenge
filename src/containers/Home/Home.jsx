@@ -17,34 +17,28 @@ class Home extends Component {
     return (
       <div className="home container">
         <Jumbotron>
-          <h2>Aligent Beer Challenge</h2>
+          <h1>Aligent Beer Challenge</h1>
+
+          <h2>Every app has a story, what&apos;s this one&apos;s</h2>
+
           <blockquote>
-            <p><a href="http://www.brewerydb.com/developers/docs-endpoint/beer_index" target="_blank">BreweryDB</a> has a simple API that returns JSON.
+            <p>
+            <a
+              href="http://www.brewerydb.com/developers/docs-endpoint/beer_index"
+              target="_blank"
+            >BreweryDB</a> has a simple API that returns JSON.
             We would like you to use HTML, CSS and Javascript to read the API
             and display it in an organized way. In addition, you should add in
             some sort of sorting mechanic to the front-end. Feel free to use any
             frameworks you would like to achieve the task.</p>
           </blockquote>
-          <br />
-          <h3>Every user has a story</h3>
+          <h3>Every app has a story, what&apos;s this one&apos;s</h3>
           <blockquote>
             <p>As a user I want to be able to be able to find a craft-beer related
               event (festival, tasting... whatever)
               somewhere interesting in the United States to attend this year.</p>
           </blockquote>
-          <br />
-          <h3>Open source on github</h3>
-          <a
-            href="https://github.com/listingslab/aligent-beer-challenge"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-              <img
-                alt="Aligent Beer Challenge"
-                src="/img/GitHub_black-Social-Coding_300.png"
-                width="150"
-              />
-          </a>
+
         </Jumbotron>
       </div>
     );

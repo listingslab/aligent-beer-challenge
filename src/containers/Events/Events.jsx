@@ -96,9 +96,9 @@ class Events extends Component {
         <div className="container">
           <div className="container">
           <Jumbotron>
-            <h2>Craft Beer Events in the United States</h2>
+            <h1>Craft Beer Events </h1>
               <blockquote>
-                <p>Filter the events by stuff like
+                <p>In the United States. Filter events by stuff like
                   which state it&apos;s in or whatever.
                 </p>
               </blockquote>
@@ -106,9 +106,7 @@ class Events extends Component {
           </div>
 
           <div className="container">
-            <div id="event-map" className="panel">
-              map
-            </div>
+            <div id="event-map" className="panel" />
           </div>
           <Grid>
             <Row className="show-grid">
