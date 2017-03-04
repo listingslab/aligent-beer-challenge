@@ -5,8 +5,10 @@
  */
 
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
+import { Panel, Grid, Col, Row, Jumbotron } from 'react-bootstrap';
 import Loader from '../../components/Loader/Loader';
-import { Panel, Grid, Col, Row } from 'react-bootstrap';
+
 import './Events.scss';
 
 class Events extends Component {
@@ -50,10 +52,8 @@ class Events extends Component {
     const latlngbounds = new google.maps.LatLngBounds();
     for (let i = 0; i < this.eventsArr.length; i += 1) {
       if (this.eventsArr[i].countryIsoCode === 'US') {
-
         const images = this.eventsArr[i].images || '';
         const icon = images.icon || '/img/no-image.png';
-        console.log(icon);
         const place = { lat: this.eventsArr[i].latitude, lng: this.eventsArr[i].longitude };
         const marker = new google.maps.Marker({
           position: place,
@@ -67,11 +67,14 @@ class Events extends Component {
   }
 
   render() {
+    const newRoute = (route) => {
+      browserHistory.push(route);
+    };
     let content = null;
     if (!this.state.eventsLoaded) {
       content = (
         <div className="container text-center">
-          <Loader loadingText="Loading Events..." />
+          <Loader loadingText="Loading Craft Beer Events ..." />
         </div>
       );
     } else {
@@ -91,6 +94,17 @@ class Events extends Component {
       }
       content = (
         <div className="container">
+          <div className="container">
+          <Jumbotron>
+            <h2>Craft Beer Events in the United States</h2>
+              <blockquote>
+                <p>Filter the events by stuff like
+                  which state it&apos;s in or whatever.
+                </p>
+              </blockquote>
+            </Jumbotron>
+          </div>
+
           <div className="container">
             <div id="event-map" className="panel">
               map
@@ -114,3 +128,15 @@ class Events extends Component {
 }
 
 export default Events;
+
+/*
+Only States which have events show up in this dropdown
+
+<span className="pull-right">&nbsp;</span>
+  <Button
+    className="btn-lg pull-right"
+    bsStyle="default"
+    onClick={() => newRoute('/')}
+  >HOME</Button>
+
+*/

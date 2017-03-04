@@ -9,17 +9,20 @@ import './Loader.scss';
 function Loader(props) {
   return (
     <div className="loader">
-      <img
-        alt="brewery DB Logo"
-        src="/img/breweryDB_logo_150.png"
-      />
-      <br />
-      <img
-        alt="loading"
-        src="/img/loader.gif"
-        className="loader-gif"
-      />
-      <p>{props.loadingText}</p>
+        <img
+          alt="Aligent"
+          src="/img/aligent-beer-challenge_100.png"
+          className="loader-logo"
+          height="75"
+        />
+
+        <img
+          alt="loading"
+          src="/img/loader.gif"
+        />
+
+        <p>{props.loadingText}</p>
+
     </div>
   );
 }

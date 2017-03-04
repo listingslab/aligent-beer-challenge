@@ -6,39 +6,8 @@
 @import '../../styles/vars.scss';
 
 .loader {
-  .loader-gif {
-    margin: 25px;
-  }
-}
-
-/* =====  Media Queries for responsiveness  ===== */
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width: 1200px) {
-  .loader {
-  }
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width: 992px) {
-  .loader {
-  }
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
-  .loader {
-  }
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (max-width: 480px) {
-  .loader {
-  }
-}
-
-/* Custom, iPhone Retina */
-@media only screen and (max-width: 320px) {
-  .loader {
+  margin-top: 15px;
+  .loader-logo {
+    margin-bottom: 35px;
   }
 }

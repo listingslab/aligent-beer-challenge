@@ -1,0 +1,16 @@
+/**
+ * Created by Chris Dorward on 03/03/2017
+ * components/MoreMenu/MoreMenu
+ */
+
+@import '../../styles/vars.scss';
+
+.more-menu {
+  a {
+    color: grey;
+  }
+
+  a:hover {
+    color: white;
+  }
+}
