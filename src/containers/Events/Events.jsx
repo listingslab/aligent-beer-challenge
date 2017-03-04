@@ -10,6 +10,7 @@ import { Jumbotron, Grid, Row, Col, Panel, Well, DropdownButton, MenuItem } from
 import Loader from '../../components/Loader/Loader';
 import FilterSort from '../../components/FilterSort/FilterSort';
 import EventList from '../../components/EventList/EventList';
+import EventDetail from '../../components/EventDetail/EventDetail';
 
 import './Events.scss';
 
@@ -67,32 +68,24 @@ class Events extends Component {
       <div className="events">
         <div className="container">
           <div className="row">
+            {loader}
           <Grid>
             <Row className="show-grid">
-              <Col
-                sm={12}
-                md={3}
-                className="left-col"
-              >
+
+              <Col sm={12} md={3} className="left-col">
                 <FilterSort />
                 <EventList />
               </Col>
-              <Col
-                sm={12}
-                md={9}
-                className="right-col"
-              >
 
-                <div className="container">
-                  <h3>Live demo</h3>
-                </div>
-
+              <Col sm={12} md={9} className="right-col">
+                <EventDetail />
               </Col>
+
             </Row>
           </Grid>
         </div>
         </div>
-        {loader}
+
       </div>
     );
   }

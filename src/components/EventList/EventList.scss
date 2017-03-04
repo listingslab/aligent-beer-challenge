@@ -1,5 +1,5 @@
 /**
- * Created by Chris Dorward on 03/03/2017
+ * Created by Chris Dorward on 05/03/2017
  * components/EventList/EventList
  */
 

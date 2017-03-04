@@ -1,0 +1,16 @@
+/**
+ * Created by Chris Dorward on 05/03/2017
+ * components/EventDetail/EventDetail
+ */
+
+@import '../../styles/vars.scss';
+
+.event-detail {
+  /* border: 1px solid red; */
+
+  .detail-img{
+    /* border: 1px solid red; */
+    width: 100%;
+    border-radius: 6px;
+  }
+}
