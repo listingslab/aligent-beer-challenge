@@ -96,7 +96,7 @@ class Events extends Component {
         <div className="container">
           <div className="container">
           <Jumbotron>
-            <h1>Craft Beer Events </h1>
+            <h1>Find a Craft Beer Event</h1>
               <blockquote>
                 <p>In the United States. Filter events by stuff like
                   which state it&apos;s in or whatever.

@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import { Panel, Grid, Col, Row, Jumbotron, Button } from 'react-bootstrap';
-import { browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import './Home.scss';
 
 class Home extends Component {
@@ -17,9 +17,15 @@ class Home extends Component {
     return (
       <div className="home container">
         <Jumbotron>
+
+          <img
+            alt=""
+            src="/img/aligent-beer-challenge.png"
+            className="home-logo"
+          />
           <h1>Aligent Beer Challenge</h1>
 
-          <h2>Every app has a story, what&apos;s this one&apos;s</h2>
+          <h2>Every app has a story, what&apos;s this one&apos;s?</h2>
 
           <blockquote>
             <p>
@@ -32,12 +38,23 @@ class Home extends Component {
             some sort of sorting mechanic to the front-end. Feel free to use any
             frameworks you would like to achieve the task.</p>
           </blockquote>
-          <h3>Every app has a story, what&apos;s this one&apos;s</h3>
+          <h3>Let&apos;s break that down to an Agile User Story.</h3>
           <blockquote>
-            <p>As a user I want to be able to be able to find a craft-beer related
+            <p>"As a user I want to be able to be able to find a craft-beer related
               event (festival, tasting... whatever)
-              somewhere interesting in the United States to attend this year.</p>
+              somewhere interesting in the United States to attend this year.""</p>
           </blockquote>
+
+          <h3>Cut straight to the demo?</h3>
+
+          <Button
+            to=""
+            className="btn btn-lg warning"
+            bsStyle="success"
+            onClick={() => newRoute ('/events')}
+          >
+            Find a Craft Beer Event
+          </Button>
 
         </Jumbotron>
       </div>
