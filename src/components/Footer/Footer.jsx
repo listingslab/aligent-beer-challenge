@@ -21,7 +21,7 @@ function Footer() {
             width="75"
           />
       </a><br />
-      version 1.0.8
+    version 1.0.9
       <br />
     </div>
   );
