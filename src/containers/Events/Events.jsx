@@ -9,6 +9,7 @@ import { Link, browserHistory } from 'react-router';
 import { Jumbotron, Grid, Row, Col, Panel, Well, DropdownButton, MenuItem } from 'react-bootstrap';
 import Loader from '../../components/Loader/Loader';
 import FilterSort from '../../components/FilterSort/FilterSort';
+import EventList from '../../components/EventList/EventList';
 
 import './Events.scss';
 
@@ -74,6 +75,7 @@ class Events extends Component {
                 className="left-col"
               >
                 <FilterSort />
+                <EventList />
               </Col>
               <Col
                 sm={12}

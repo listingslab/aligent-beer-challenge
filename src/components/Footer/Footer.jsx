@@ -18,10 +18,11 @@ function Footer() {
             alt="Aligent Beer Challenge"
             src="/img/GitHub-Social-Coding.png"
             className="git-logo"
-            width="75"
+            width="50"
           />
-      </a><br />
-    version 1.0.9
+      </a>
+      <br />
+      <small>version 1.1.0</small>
       <br />
     </div>
   );
