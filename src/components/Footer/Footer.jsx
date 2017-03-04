@@ -8,7 +8,7 @@ import './Footer.scss';
 
 function Footer() {
   return (
-    <div className="footer text-center">
+    <div className="footer container">
         <a
           href="https://github.com/listingslab/aligent-beer-challenge"
           rel="noopener noreferrer"

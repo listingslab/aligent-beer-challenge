@@ -40,52 +40,50 @@ class Events extends Component {
   }
 
   sortAndFilter() {
-    return [];
+    return cms.eventsData.contents.data;
   }
 
   render() {
     const newRoute = (route) => {
       browserHistory.push(route);
     };
+    let content = null;
     let loader = null;
+    let gridContent = null;
     if (!this.state.eventsLoaded) {
       loader = (
         <div className="container text-center">
           <Loader loadingText="Loading Craft Beer Events ..." />
         </div>
       );
+    } else {
+      gridContent = (
+        <Grid>
+          <Row className="show-grid">
+            <Col sm={12} md={3} className="left-col">
+              <FilterSort />
+              <EventList
+                eventData={this.sortAndFilter()}
+              />
+            </Col>
+            <Col sm={12} md={9} className="right-col">
+              <EventDetail
+                eventData={this.sortAndFilter()}
+              />
+            </Col>
+          </Row>
+        </Grid>
+      );
     }
-
-    let eventList = this.sortAndFilter();
-    console.log ('The Sorted Array');
-    eventList.push (
-      <Panel>
-        panel
-      </Panel>
-    );
 
     return (
       <div className="events">
         <div className="container">
           <div className="row">
             {loader}
-          <Grid>
-            <Row className="show-grid">
-
-              <Col sm={12} md={3} className="left-col">
-                <FilterSort />
-                <EventList />
-              </Col>
-
-              <Col sm={12} md={9} className="right-col">
-                <EventDetail />
-              </Col>
-
-            </Row>
-          </Grid>
+            {gridContent}
+          </div>
         </div>
-        </div>
-
       </div>
     );
   }
@@ -107,5 +105,4 @@ Only States which have events show up in this dropdown
     bsStyle="default"
     onClick={() => newRoute('/')}
   >HOME</Button>
-
 */

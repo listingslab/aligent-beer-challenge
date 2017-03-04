@@ -1,0 +1,22 @@
+/**
+ * Created by Chris Dorward on 05/03/2017
+ * components/EventList/EventList
+ */
+
+@import '../../styles/vars.scss';
+
+.event-list-item{
+  display: block;
+  width: 215px;
+  margin-bottom: 5px;
+  text-align: left;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.event-list-item:hover{
+  border: 1px solid #7a7a7a;
+  background-color: #eee;
+}

@@ -10,8 +10,6 @@ import { Link, browserHistory } from 'react-router';
 import './EventDetail.scss';
 
 function EventDetail() {
-  // console.log(detailData);
-
   const detailData =
     {
       id: 'k2jMtH',
@@ -51,38 +49,35 @@ function EventDetail() {
         createDate: '2012-01-03 02:41:33'
       }
     };
-    console.log(detailData);
   const newRoute = (route) => {
     browserHistory.push(route);
   };
   return (
     <div className="event-detail">
       <Panel>
+        <div className="detail-links">
+          <a
+            href={detailData.website}
+            target="_blank"
+            title={detailData.name}
+            className="btn btn-primary"
+          >
+            <span className="glyphicon glyphicon-globe" aria-hidden="true" />&nbsp;Website
+          </a>
+        </div>
         <h3>{detailData.name}</h3>
         <div className="detail-left">
           <div className="event-detail-item">
+
+
               <img
                 alt="Selected Event Title"
-                src="/img/event_images/large.jpg"
+                src={detailData.images.large || '/img/event_images/large.jpg'}
                 className="img-responsive detail-img"
               />
-
-              <div className="detail-links">
-                <a
-                  href={detailData.website}
-                  target="_blank"
-                  className="btn btn-primary"
-                >
-                  Website
-                </a>
-              </div>
-
               <strong>{detailData.price}</strong>
-
-              <h4>More info</h4>
               {detailData.description}
           </div>
-
         </div>
 
         <div className="detail-right">
@@ -103,7 +98,6 @@ function EventDetail() {
             {detailData.locality}<br />
             {detailData.region}
           </blockquote>
-
         </div>
 
         <div className="detail-clear" />

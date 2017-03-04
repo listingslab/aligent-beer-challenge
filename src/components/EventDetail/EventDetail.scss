@@ -14,19 +14,19 @@
   }
 
   .detail-links{
-    margin-top: 10px;
-    margin-bottom: 10px;
+    float: right;
   }
 
   .detail-left{
-    width: 69%;
+    width: 65%;
     float: left;
     min-width: 200px;
     margin-right: 3%;
+    padding:10px;
   }
 
   .detail-right{
-    width: 28%;
+    width: 25%;
     float: left;
     min-width: 200px;
   }

@@ -16,29 +16,29 @@ function FilterSort() {
   };
   return (
     <div className="filter-sort container">
-      <h3>Sort/Only show</h3>
+      <h4>Sort/Show</h4>
         <div className="filter">
+          <p>Showing: <strong>All states</strong></p>
           <DropdownButton
             bsStyle="primary"
-            title="Only show US State..."
+            title="Only show events in..."
             id="filter-state"
             className="filter-sort-dd">
             <MenuItem eventKey="texas">texas</MenuItem>
             <MenuItem eventKey="new-england">new-england</MenuItem>
             <MenuItem eventKey="california">california</MenuItem>
           </DropdownButton>
-          <br />Showing: <strong>All</strong>
+          <br />
         </div>
         <div className="sort">
           <DropdownButton
             bsStyle="primary"
-            title="Sort by..."
+            title="Order by..."
             id="sort-by"
             className="filter-sort-dd">
             <MenuItem eventKey="sort-price">Price</MenuItem>
             <MenuItem eventKey="sort-name">Name</MenuItem>
           </DropdownButton>
-          <br />Sorted by: <strong>Name</strong>
         </div>
     </div>
   );
