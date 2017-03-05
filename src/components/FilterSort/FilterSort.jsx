@@ -1,3 +1,4 @@
+/* global cms */
 /**
  * Created by Chris Dorward on 03/03/2017
  * components/FilterSort/FilterSort
@@ -10,7 +11,8 @@ import './FilterSort.scss';
 
 function FilterSort(props) {
   const onSelectFunc = (selected) => {
-    console.log(selected);
+    cms.selectedState = selected;
+    browserHistory.push(`/events/${selected.toLowerCase().replace(' ', '-')}`);
   };
   const statesArr = [];
   const uniqueStates = [];
@@ -35,6 +37,11 @@ function FilterSort(props) {
       }
     }
   }
+
+  let filterStateText = 'Only show events in...';
+  if (cms.selectedState !== undefined) {
+    filterStateText = cms.selectedState;
+  }
   return (
     <div className="filter-sort container">
       <h4>Showing <Badge
@@ -43,7 +50,7 @@ function FilterSort(props) {
         <DropdownButton
           onSelect={onSelectFunc}
           bsStyle="default"
-          title="Only show events in..."
+          title={filterStateText}
           id="filter-state"
           className="filter-dd">
           {statesArr}
@@ -62,15 +69,3 @@ function FilterSort(props) {
 }
 
 export default FilterSort;
-
-/*
-  <DropdownButton
-    bsStyle="danger"
-    title="Select Price"
-    id="dropdown-state">
-    <MenuItem eventKey="price-free">FREE</MenuItem>
-    <MenuItem eventKey="price-1-10">$1 - $10</MenuItem>
-    <MenuItem eventKey="price-11-99">$11 - $99</MenuItem>
-    <MenuItem eventKey="price-100plus">$100 +</MenuItem>
-  </DropdownButton>
-*/

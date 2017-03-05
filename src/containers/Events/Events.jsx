@@ -51,8 +51,22 @@ class Events extends Component {
     });
   }
 
-  renderMap() {
+  sortAndFilter() {
+    const allData = cms.eventsData.contents.data;
+    let filteredData = [];
+    if (cms.selectedState !== undefined) {
+      for (let i = 0; i < allData.length; i += 1) {
+        if (cms.selectedState === allData[i].region) {
+          filteredData.push(allData[i]);
+        }
+      }
+    } else {
+      filteredData = allData;
+    }
+    return filteredData;
+  }
 
+  renderMap() {
     const map = new google.maps.Map(document.getElementById('event-map'), {
       styles: [
         {
@@ -212,10 +226,6 @@ class Events extends Component {
     }
     map.setCenter(latlngbounds.getCenter());
     map.fitBounds(latlngbounds);
-  }
-
-  sortAndFilter() {
-    return cms.eventsData.contents.data;
   }
 
   render() {

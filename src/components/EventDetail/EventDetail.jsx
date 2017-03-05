@@ -15,7 +15,7 @@ function EventDetail() {
     const detailData = cms.currentEvent;
     const images = detailData.images || '';
     let img = null;
-    if (images.large !== undefined){
+    if (images.large !== undefined) {
       img = (<img
         alt="Selected Event Title"
         src={images.large || '/img/event_images/large.jpg'}
@@ -58,8 +58,8 @@ function EventDetail() {
     );
   } else {
     content = (null);
-
   }
+
   return (
     <div className="event-detail">
       {content}
@@ -70,33 +70,6 @@ function EventDetail() {
 export default EventDetail;
 
 /*
-
-<div>
-  <Panel>
-    <h3>{detailData.name || 'Event Name'}</h3>
-    <div id="event-map" className="current-map panel" />
-    <div className="detail-left">
-
-    </div>
-    <div className="detail-right">
-
-    </div>
-    <div className="detail-clear" />
-      <div className="detail-footer pull-right">
-        <a
-          href={detailData.website}
-          target="_blank"
-          rel="noopener noreferrer"
-          title={detailData.name}
-          className="btn btn-primary"
-        >
-          <span className="glyphicon glyphicon-globe" aria-hidden="true" />&nbsp;Website
-        </a>
-      </div>
-  </Panel>
-</div>
-
-
 <strong>id:</strong> {detailData.id}<br />
 <strong>latitude:</strong> {detailData.latitude}<br />
 <strong>longitude:</strong> {detailData.longitude}<br />
