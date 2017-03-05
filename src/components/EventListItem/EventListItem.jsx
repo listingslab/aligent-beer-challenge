@@ -15,21 +15,16 @@ function EventListItem(props) {
     browserHistory.push(route);
   };
   const thisClicked = (item, options) => {
-    console.log(`ID: ${item.id}`);
-    console.log(props.eventData);
+    console.log(`thisClicked ID: ${item.id}`);
+    // console.log(props.eventItemClicked);
   };
   return (
     <Button
-      className="event-list-item"
+      className="event-list-item event-list-detail"
       bsStyle="success"
+      onClick={() => thisClicked(props.eventData)}
     >
-      <strong>{props.eventData.name}</strong>
-      <div
-        className="event-list-detail"
-        onClick={() => thisClicked(props.eventData)}
-      >
-
-      </div>
+      {props.eventData.name}
     </Button>
   );
 }
@@ -37,6 +32,7 @@ function EventListItem(props) {
 export default EventListItem;
 
 /*
+
 <div><em>What?</em> {props.eventData.typeDisplay}</div>
 <div><em>When?</em> {props.eventData.time}, {props.eventData.startDate}</div>
 

@@ -6,9 +6,13 @@
 @import '../../styles/vars.scss';
 
 .loader {
-  margin-top: 15px;
+  margin-top: 50px;
 
   .loader-logo {
     margin-bottom: 35px;
+  }
+
+  .loadgif {
+    margin-bottom: 50px;
   }
 }

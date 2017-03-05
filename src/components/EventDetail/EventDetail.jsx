@@ -9,7 +9,9 @@ import { Link, browserHistory } from 'react-router';
 //
 import './EventDetail.scss';
 
-function EventDetail() {
+function EventDetail(props) {
+  console.log ('RENDER EventDetail');
+  console.log (props);
   const detailData =
     {
       id: 'k2jMtH',

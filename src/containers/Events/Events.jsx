@@ -5,8 +5,8 @@
  */
 
 import React, { Component } from 'react';
-import { Link, browserHistory } from 'react-router';
-import { Jumbotron, Grid, Row, Col, Panel, Well, DropdownButton, MenuItem } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
+import { Grid, Row, Col } from 'react-bootstrap';
 import Loader from '../../components/Loader/Loader';
 import FilterSort from '../../components/FilterSort/FilterSort';
 import EventList from '../../components/EventList/EventList';
@@ -76,6 +76,7 @@ class Events extends Component {
             <Col sm={12} mdOffset={1} md={8} className="right-col">
               <EventDetail
                 eventData={this.sortAndFilter()}
+                eventItemClicked={this.eventItemClicked}
               />
             </Col>
           </Row>

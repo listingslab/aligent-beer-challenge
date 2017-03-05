@@ -12,13 +12,13 @@ import EventListItem from '../../components/EventListItem/EventListItem';
 import './EventList.scss';
 
 function EventList(props) {
-  // console.log(props.eventData);
+  console.log(props.eventItemClicked);
   const newRoute = (route) => {
     browserHistory.push(route);
   };
   const eventItems = [];
   // props.eventData.length
-  for (let i = 0; i < 15; i += 1){
+  for (let i = 0; i < 12; i += 1){
     const key = `event_${i}`;
     eventItems.push(
       <EventListItem
