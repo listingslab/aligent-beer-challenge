@@ -6,6 +6,7 @@
 
 import React from 'react';
 import { Alert, Button } from 'react-bootstrap';
+import $ from 'jquery';
 import { Link, browserHistory } from 'react-router';
 
 
@@ -17,6 +18,7 @@ function EventListItem(props) {
   };
   const thisClicked = (item) => {
     cms.currentEvent = item;
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
     browserHistory.push(`/event/${item.id}`);
   };
   const nameLength = 38;

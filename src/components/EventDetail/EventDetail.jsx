@@ -14,19 +14,23 @@ function EventDetail() {
   if (cms.currentEvent !== undefined) {
     const detailData = cms.currentEvent;
     const images = detailData.images || '';
+    let img = null;
+    if (images.large !== undefined){
+      img = (<img
+        alt="Selected Event Title"
+        src={images.large || '/img/event_images/large.jpg'}
+        className="img-responsive detail-img"
+      />);
+    }
     content = (
       <div>
         <Panel>
           <h3>{detailData.name || 'Event Name'}</h3>
           <div className="detail-left">
             <div className="event-detail-item">
-                <img
-                  alt="Selected Event Title"
-                  src={images.large || '/img/event_images/large.jpg'}
-                  className="img-responsive detail-img"
-                />
-                <strong>{detailData.price}</strong>
-                {detailData.description}
+              {img}
+              <strong>{detailData.price}</strong>
+              {detailData.description}
             </div>
           </div>
           <div className="detail-right">

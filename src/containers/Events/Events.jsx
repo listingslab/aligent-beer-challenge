@@ -30,8 +30,17 @@ class Events extends Component {
     }
   }
 
-  eventItemClicked() {
-    console.log('eventItemClicked');
+  componentDidMount() {
+    if (this.state.eventsLoaded) {
+      this.renderMap();
+    }
+    console.log('random');
+  }
+
+  componentDidUpdate() {
+    if (this.state.eventsLoaded) {
+      this.renderMap();
+    }
   }
 
   apiEventsCallback(eventsData) {
@@ -41,6 +50,165 @@ class Events extends Component {
       eventsLoaded: true,
       eventsData
     });
+  }
+
+  renderMap() {
+    const eventsArr = this.sortAndFilter();
+    const map = new google.maps.Map(document.getElementById('event-map'), {
+      styles: [
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "saturation": "-100"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "color": "#545454"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "saturation": "-87"
+            },
+            {
+                "lightness": "-40"
+            },
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway.controlled_access",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#f0f0f0"
+            },
+            {
+                "saturation": "-22"
+            },
+            {
+                "lightness": "-16"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway.controlled_access",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway.controlled_access",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "saturation": "-52"
+            },
+            {
+                "hue": "#00e4ff"
+            },
+            {
+                "lightness": "-16"
+            }
+        ]
+    }
+]
+    });
+    const latlngbounds = new google.maps.LatLngBounds();
+    for (let i = 0; i < eventsArr.length; i += 1) {
+      if (eventsArr[i].countryIsoCode === 'US') {
+        const images = eventsArr[i].images || '';
+        const icon = '/img/googlemap.png';
+        const place = { lat: eventsArr[i].latitude, lng: eventsArr[i].longitude };
+        const marker = new google.maps.Marker({
+          position: place,
+          icon,
+          map
+        });
+        latlngbounds.extend(marker.position);
+      }
+    }
+    map.setCenter(latlngbounds.getCenter());
+    map.fitBounds(latlngbounds);
   }
 
   sortAndFilter() {
@@ -74,6 +242,9 @@ class Events extends Component {
               />
             </Col>
             <Col sm={12} mdOffset={1} md={8} className="right-col">
+
+              <div id="event-map" className="panel" />
+
               <EventDetail
                 eventData={this.sortAndFilter()}
                 eventItemClicked={this.eventItemClicked}
