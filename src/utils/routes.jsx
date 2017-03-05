@@ -18,6 +18,7 @@ const routes = (
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/events" component={Events} />
+      <Route path="/events/*" component={Events} />
       <Route path="/event/*" component={Events} />
       <Route path="/event/:id" component={Events} />
       <Route path="/about" component={PageAbout} />

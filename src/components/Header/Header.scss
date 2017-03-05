@@ -6,9 +6,6 @@
 @import '../../styles/vars.scss';
 
 .header {
-  .navbar {
-  }
-
   .navbar-brand {
     display: flex;
     align-items: center;
@@ -16,37 +13,5 @@
 
   .navbar-brand > img {
     padding: 7px;
-  }
-}
-
-/* =====  Media Queries for responsiveness  ===== */
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width: 1200px) {
-  .header {
-  }
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width: 992px) {
-  .header {
-  }
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
-  .header {
-  }
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (max-width: 480px) {
-  .header {
-  }
-}
-
-/* Custom, iPhone Retina */
-@media only screen and (max-width: 320px) {
-  .header {
   }
 }

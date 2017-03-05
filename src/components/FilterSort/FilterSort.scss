@@ -6,10 +6,14 @@
 @import '../../styles/vars.scss';
 
 .filter-sort {
+  .badge-success {
+    background: #4096f7;
+  }
 
   .filter-dds {
     margin-bottom: 10px;
   }
+
   .filter-dd {
     margin-right: 5px;
     text-align: left;
