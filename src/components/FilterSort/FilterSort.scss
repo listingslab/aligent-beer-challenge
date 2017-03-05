@@ -1,0 +1,21 @@
+/**
+ * Created by Chris Dorward on 03/03/2017
+ * components/FilterSort/FilterSort
+ */
+
+@import '../../styles/vars.scss';
+
+.filter-sort {
+
+  .filter-dds {
+    margin-bottom: 10px;
+  }
+  .filter-dd {
+    margin-right: 5px;
+    text-align: left;
+  }
+
+  .sort-dd {
+    text-align: left;
+  }
+}

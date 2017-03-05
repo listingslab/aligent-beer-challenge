@@ -13,6 +13,7 @@ function Loader(props) {
         <img
           alt="loading"
           src="/img/loader.gif"
+          className="loadgif"
         />
     </div>
   );

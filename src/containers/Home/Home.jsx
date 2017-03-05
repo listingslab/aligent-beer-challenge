@@ -17,28 +17,27 @@ class Home extends Component {
     return (
       <div className="home container">
         <Jumbotron>
+          <Button
+            className="btn btn-lg pull-right"
+            bsStyle="success"
+            onClick={() => newRoute('/events')}
+          >TRY DEMO</Button>
 
-          <img
-            alt=""
-            src="/img/aligent-beer-challenge.png"
-            className="home-logo"
-          />
-          <h1>Aligent Beer Challenge</h1>
+        <h2>Aligent Beer Challenge</h2>
 
-          <p>Click LIVE DEMO to see the following features...</p>
           <ul>
               <li>Loading JSON from a remote RestFUL API</li>
               <li>Using a PHP proxy to do so</li>
               <li>Bootstrap / CSS3 / Sass / HTML5 etc</li>
           </ul>
 
-          <Button
-            className="btn btn-lg warning"
-            bsStyle="success"
-            onClick={() => newRoute('/events')}
-          >LIVE DEMO</Button>
 
         <h3>Every app has a story, what&apos;s this one&apos;s?</h3>
+          <img
+            alt=""
+            src="/img/aligent-beer-challenge.png"
+            className="home-logo"
+          />
           <blockquote>
             <p>
             <a

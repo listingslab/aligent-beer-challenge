@@ -5,9 +5,12 @@
  */
 
 import React, { Component } from 'react';
-import { Link, browserHistory } from 'react-router';
-import { Jumbotron, Grid, Row, Col, Panel, Well, DropdownButton, MenuItem } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
+import { Grid, Row, Col } from 'react-bootstrap';
 import Loader from '../../components/Loader/Loader';
+import FilterSort from '../../components/FilterSort/FilterSort';
+import EventList from '../../components/EventList/EventList';
+import EventDetail from '../../components/EventDetail/EventDetail';
 
 import './Events.scss';
 
@@ -27,6 +30,10 @@ class Events extends Component {
     }
   }
 
+  eventItemClicked() {
+    console.log('eventItemClicked');
+  }
+
   apiEventsCallback(eventsData) {
     this.eventsArr = eventsData.contents.data;
     cms.eventsData = eventsData;
@@ -37,76 +44,54 @@ class Events extends Component {
   }
 
   sortAndFilter() {
-    return [];
+    return cms.eventsData.contents.data;
   }
 
   render() {
     const newRoute = (route) => {
       browserHistory.push(route);
     };
+    let content = null;
     let loader = null;
+    let gridContent = null;
     if (!this.state.eventsLoaded) {
       loader = (
         <div className="container text-center">
           <Loader loadingText="Loading Craft Beer Events ..." />
         </div>
       );
+    } else {
+      gridContent = (
+        <Grid>
+          <Row className="show-grid">
+            <Col sm={12} md={3} className="left-col">
+              <FilterSort
+                eventData={this.sortAndFilter()}
+                eventItemClicked={this.eventItemClicked}
+              />
+              <EventList
+                eventData={this.sortAndFilter()}
+              />
+            </Col>
+            <Col sm={12} mdOffset={1} md={8} className="right-col">
+              <EventDetail
+                eventData={this.sortAndFilter()}
+                eventItemClicked={this.eventItemClicked}
+              />
+            </Col>
+          </Row>
+        </Grid>
+      );
     }
-
-    let eventList = this.sortAndFilter();
-    console.log ('The Sorted Array');
-    eventList.push (
-      <Panel>
-        panel
-      </Panel>
-    );
 
     return (
       <div className="events">
         <div className="container">
           <div className="row">
-          <Grid>
-            <Row className="show-grid">
-              <Col
-                sm={12}
-                md={3}
-                className="left-col"
-              >
-                <h3>Filter or sort events</h3>
-                  <p><DropdownButton
-                    bsStyle="danger"
-                    title="Select State"
-                    id="dropdown-state">
-                    <MenuItem eventKey="texas">texas</MenuItem>
-                    <MenuItem eventKey="new-england">new-england</MenuItem>
-                    <MenuItem eventKey="california">california</MenuItem>
-                  </DropdownButton>&nbsp;
-                  <DropdownButton
-                      bsStyle="danger"
-                      title="Select Price"
-                      id="dropdown-state">
-                      <MenuItem eventKey="price-free">FREE</MenuItem>
-                      <MenuItem eventKey="price-1-10">$1 - $10</MenuItem>
-                      <MenuItem eventKey="price-11-99">$11 - $99</MenuItem>
-                      <MenuItem eventKey="price-100plus">$100 +</MenuItem>
-                    </DropdownButton>
-                  </p>
-                  {eventList}
-              </Col>
-              <Col
-                sm={12}
-                md={9}
-                className="right-col"
-              >
-                <Jumbotron>
-                  <h2>LIVE DEMO</h2>
-                </Jumbotron>
-              </Col>
-            </Row>
-          </Grid>
+            {loader}
+            {gridContent}
+          </div>
         </div>
-        </div>
-        {loader}
       </div>
     );
   }
@@ -128,5 +113,4 @@ Only States which have events show up in this dropdown
     bsStyle="default"
     onClick={() => newRoute('/')}
   >HOME</Button>
-
 */

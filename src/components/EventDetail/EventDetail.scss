@@ -1,0 +1,40 @@
+/**
+ * Created by Chris Dorward on 05/03/2017
+ * components/EventDetail/EventDetail
+ */
+
+@import '../../styles/vars.scss';
+
+.event-detail {
+  /* border: 1px solid red; */
+  margin-top: 40px;
+
+  .detail-img{
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+
+  
+
+  .detail-links{
+    float: right;
+  }
+
+  .detail-left{
+    width: 65%;
+    float: left;
+    min-width: 200px;
+    margin-right: 3%;
+    padding:10px;
+  }
+
+  .detail-right{
+    width: 25%;
+    float: left;
+    min-width: 200px;
+  }
+
+  .detail-clear{
+    clear: both;
+  }
+}
