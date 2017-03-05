@@ -22,7 +22,7 @@ function Header() {
           <Navbar.Brand>
             <Link to="/">
               <img
-                src="/img/breweryDB_logo_32.png"
+                src="/img/aligent-beer-challenge_brand.png"
                 alt="Aligent Beer Challenge"
               />
             </Link>

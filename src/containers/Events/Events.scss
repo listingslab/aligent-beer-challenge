@@ -13,10 +13,14 @@
 
   .right-col {
     /* border:1px solid orange;  */
-    #event-map {
+    .current-map {
       height: 350px;
       border-radius: 5px;
-      margin-top: 95px;
+    }
+
+    .no-current-map{
+      margin-top: 50px;
+      height: 550px;
     }
   }
 }

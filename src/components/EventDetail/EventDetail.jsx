@@ -29,7 +29,8 @@ function EventDetail() {
           <div className="detail-left">
             <div className="event-detail-item">
               {img}
-              <strong>{detailData.price}</strong>
+              <p><strong>{detailData.price}</strong></p>
+              <div id="event-map" className="current-map panel" />
               {detailData.description}
             </div>
           </div>
@@ -57,7 +58,7 @@ function EventDetail() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={detailData.name}
-                className="btn btn-default"
+                className="btn btn-primary"
               >
                 <span className="glyphicon glyphicon-globe" aria-hidden="true" />&nbsp;Website
               </a>

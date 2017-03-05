@@ -34,7 +34,6 @@ class Events extends Component {
     if (this.state.eventsLoaded) {
       this.renderMap();
     }
-    console.log('random');
   }
 
   componentDidUpdate() {
@@ -53,7 +52,7 @@ class Events extends Component {
   }
 
   renderMap() {
-    const eventsArr = this.sortAndFilter();
+
     const map = new google.maps.Map(document.getElementById('event-map'), {
       styles: [
     {
@@ -193,6 +192,10 @@ class Events extends Component {
     }
 ]
     });
+    let eventsArr = this.sortAndFilter();
+    if (cms.currentEvent !== undefined){
+      eventsArr = [cms.currentEvent];
+    }
     const latlngbounds = new google.maps.LatLngBounds();
     for (let i = 0; i < eventsArr.length; i += 1) {
       if (eventsArr[i].countryIsoCode === 'US') {
@@ -216,12 +219,14 @@ class Events extends Component {
   }
 
   render() {
-    const newRoute = (route) => {
-      browserHistory.push(route);
-    };
-    let content = null;
     let loader = null;
     let gridContent = null;
+    let mapDiv = null;
+    if (cms.currentEvent === undefined){
+      mapDiv = (
+        <div id="event-map" className="panel no-current-map" />
+      );
+    }
     if (!this.state.eventsLoaded) {
       loader = (
         <div className="container text-center">
@@ -242,9 +247,7 @@ class Events extends Component {
               />
             </Col>
             <Col sm={12} mdOffset={1} md={8} className="right-col">
-
-              <div id="event-map" className="panel" />
-
+              {mapDiv}
               <EventDetail
                 eventData={this.sortAndFilter()}
                 eventItemClicked={this.eventItemClicked}
@@ -269,19 +272,3 @@ class Events extends Component {
 }
 
 export default Events;
-
-/*
-Only States which have events show up in this dropdown
-
-<Link
-  to="/free"
-  className="btn btn-success pull-right"
->FREE!</Link>
-
-<span className="pull-right">&nbsp;</span>
-  <Button
-    className="btn-lg pull-right"
-    bsStyle="default"
-    onClick={() => newRoute('/')}
-  >HOME</Button>
-*/
