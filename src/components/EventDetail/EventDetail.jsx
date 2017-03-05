@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { Panel, Grid, Col, Row } from 'react-bootstrap';
+import { Well, Panel, Grid, Col, Row } from 'react-bootstrap';
 
 import './EventDetail.scss';
 
@@ -23,7 +23,7 @@ function EventDetail() {
       />);
     }
     content = (
-      <Panel>
+      <Well>
         <h3>{detailData.name || 'Event Name'}</h3>
         <div id="event-map" className="current-map panel" />
         <Grid>
@@ -54,14 +54,14 @@ function EventDetail() {
             </Col>
           </Row>
         </Grid>
-      </Panel>
+      </Well>
     );
   } else {
     content = (null);
   }
 
   return (
-    <div className="event-detail">
+    <div id="detail" className="event-detail">
       {content}
     </div>
   );

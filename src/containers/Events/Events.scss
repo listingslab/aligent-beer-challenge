@@ -9,6 +9,13 @@
   .left-col {
     /* border:1px solid green;
     overflow: hidden; */
+
+    .scrollable-events{
+      height: 550px;
+      width: 280px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
   }
 
   .right-col {
@@ -19,8 +26,18 @@
     }
 
     .no-current-map{
-      margin-top: 100px;
+      margin-top: 95px;
       height: 550px;
+    }
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .events {
+    .left-col {
+      .scrollable-events{
+      }
     }
   }
 }

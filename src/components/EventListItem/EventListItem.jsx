@@ -19,15 +19,15 @@ function EventListItem(props) {
       className = `${className} active`;
     }
   }
-  const newRoute = (route) => {
-    browserHistory.push(route);
-  };
   const thisClicked = (item) => {
     cms.currentEvent = item;
-    $('html, body').animate({ scrollTop: 0 }, 'fast');
+    $('html, body').animate({
+      scrollTop: $('#detail').offset().top
+    }, 'fast');
+
     browserHistory.push(`/event/${item.id}`);
   };
-  const nameLength = 38;
+  const nameLength = 28;
   let shortName = props.eventData.name.substring(0, nameLength);
   if (shortName.length - nameLength === 0) {
     shortName = `${shortName}...`;
@@ -38,7 +38,10 @@ function EventListItem(props) {
       bsStyle="primary"
       onClick={() => thisClicked(props.eventData)}
     >
-      {shortName}
+      <strong>{shortName}</strong>
+      <br />
+        {props.eventData.locality},
+        {props.eventData.region}
     </Button>
   );
 }
@@ -50,6 +53,7 @@ export default EventListItem;
 <div><em>When?</em> {props.eventData.time}, {props.eventData.startDate}</div>
 <div><em>Where?</em> {props.eventData.venueName},
 {props.eventData.streetAddress},
-{props.eventData.locality},
-{props.eventData.region}</div>
+
+{props.eventData.typeDisplay}
+</div>
 */

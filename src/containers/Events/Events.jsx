@@ -236,7 +236,6 @@ class Events extends Component {
       mapDiv = (
         <div>
           <div id="event-map" className="panel no-current-map" />
-          <h4 className="text-center">Select an event from the list on the left to find out more.</h4>
         </div>
       );
     }
@@ -250,16 +249,18 @@ class Events extends Component {
       gridContent = (
         <Grid>
           <Row className="show-grid">
-            <Col sm={12} md={3} className="left-col">
+            <Col sm={12} md={2} className="left-col">
               <FilterSort
                 eventData={cms.eventsData.contents.data}
                 filteredNum={this.sortAndFilter().length}
               />
-              <EventList
-                eventData={this.sortAndFilter()}
-              />
+              <div className="scrollable-events">
+                <EventList
+                  eventData={this.sortAndFilter()}
+                />
+              </div>
             </Col>
-            <Col sm={12} mdOffset={1} md={8} className="right-col">
+            <Col sm={12} mdOffset={1} md={9} className="right-col">
               {mapDiv}
               <EventDetail
                 eventData={this.sortAndFilter()}
