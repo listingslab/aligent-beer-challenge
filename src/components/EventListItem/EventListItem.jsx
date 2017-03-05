@@ -15,16 +15,12 @@ function EventListItem(props) {
   let className = 'event-list-item event-list-detail';
   if (cms.currentEvent !== undefined) {
     if (cms.currentEvent.id === props.eventData.id){
-      console.log('currentEvent');
       className = `${className} active`;
     }
   }
   const thisClicked = (item) => {
     cms.currentEvent = item;
-    $('html, body').animate({
-      scrollTop: $('#detail').offset().top
-    }, 'fast');
-
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
     browserHistory.push(`/event/${item.id}`);
   };
   const nameLength = 28;

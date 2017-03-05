@@ -7,8 +7,6 @@
 
 .events {
   .left-col {
-    /* border:1px solid green;
-    overflow: hidden; */
 
     .scrollable-events{
       height: 550px;
@@ -19,24 +17,14 @@
   }
 
   .right-col {
-    /* border:1px solid orange;  */
     .current-map {
       height: 350px;
       border-radius: 5px;
     }
 
     .no-current-map{
+      margin-top: 40px;
       height: 640px;
-    }
-  }
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
-  .events {
-    .left-col {
-      .scrollable-events{
-      }
     }
   }
 }
