@@ -65,7 +65,9 @@ class Events extends Component {
         <Grid>
           <Row className="show-grid">
             <Col sm={12} md={3} className="left-col">
-              <FilterSort />
+              <FilterSort
+                eventData={this.sortAndFilter()}
+              />
               <EventList
                 eventData={this.sortAndFilter()}
                 eventItemClicked={this.eventItemClicked}

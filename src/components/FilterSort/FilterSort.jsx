@@ -4,40 +4,42 @@
  */
 
 import React from 'react';
-import { DropdownButton, MenuItem, Panel } from 'react-bootstrap';
-import { Link, browserHistory } from 'react-router';
-//
+import { Badge, DropdownButton, MenuItem } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 import './FilterSort.scss';
 
-function FilterSort() {
-  // console.log(props);
+function FilterSort(props) {
   const newRoute = (route) => {
     browserHistory.push(route);
   };
+  const statesArr = [];
+  const key = 'dkjn';
+  statesArr.push(
+    <MenuItem
+      key={key}
+      eventKey="texas"
+      >texas</MenuItem>
+  );
   return (
     <div className="filter-sort container">
-      <h4>Sort/Show</h4>
-        <div className="filter">
-          <p>Showing: <strong>All states</strong></p>
-          <DropdownButton
-            bsStyle="primary"
-            title="Only show events in..."
-            id="filter-state"
-            className="filter-dd">
-            <MenuItem eventKey="texas">texas</MenuItem>
-            <MenuItem eventKey="new-england">new-england</MenuItem>
-            <MenuItem eventKey="california">california</MenuItem>
-          </DropdownButton>
-
-          <DropdownButton
-            bsStyle="primary"
-            title="Order by..."
-            id="sort-by"
-            className="sort-dd">
-            <MenuItem eventKey="sort-price">Price</MenuItem>
-            <MenuItem eventKey="sort-name">Name</MenuItem>
-          </DropdownButton>
-        </div>
+      <h4>Showing <Badge>{props.eventData.length}</Badge> Events</h4>
+      <div className="filter-dds">
+        <DropdownButton
+          bsStyle="default"
+          title="Only show events in..."
+          id="filter-state"
+          className="filter-dd">
+          {statesArr}
+        </DropdownButton>
+        <DropdownButton
+          bsStyle="default"
+          title="Order by..."
+          id="sort-by"
+          className="sort-dd">
+          <MenuItem eventKey="sort-price">Price</MenuItem>
+          <MenuItem eventKey="sort-name">Name</MenuItem>
+        </DropdownButton>
+      </div>
     </div>
   );
 }

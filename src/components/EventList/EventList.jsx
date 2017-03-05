@@ -17,7 +17,8 @@ function EventList(props) {
     browserHistory.push(route);
   };
   const eventItems = [];
-  for (let i = 0; i < props.eventData.length; i += 1){
+  // props.eventData.length
+  for (let i = 0; i < 15; i += 1){
     const key = `event_${i}`;
     eventItems.push(
       <EventListItem
@@ -29,7 +30,7 @@ function EventList(props) {
   }
   return (
     <div className="event-list container">
-      <h4>Showing <Badge>{props.eventData.length}</Badge> Events</h4>
+
       {eventItems}
     </div>
   );
