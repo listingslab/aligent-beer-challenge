@@ -14,6 +14,9 @@ class NotFound extends Component {
     const newRoute = (route) => {
       browserHistory.push(route);
     };
+    const goBack = () => {
+      browserHistory.goBack();
+    };
     return (
       <div className="not-found container">
         <Jumbotron>
@@ -28,13 +31,13 @@ class NotFound extends Component {
           <h2>Not Found?</h2>
           <p>Damn. that&lsquo;s no good.</p>
 
+            <span className="pull-right">&nbsp;</span>
+              <Button
+                className="btn-lg"
+                bsStyle="success"
+                onClick={() => goBack ()}
+              >Back</Button>
 
-          <span className="pull-right">&nbsp;</span>
-            <Button
-              className="btn-lg"
-              bsStyle="success"
-              onClick={() => newRoute ('/events')}
-            >LIVE DEMO</Button>
           &nbsp;
             <span className="pull-right">&nbsp;</span>
             <Button
@@ -42,6 +45,14 @@ class NotFound extends Component {
               bsStyle="success"
               onClick={() => newRoute ('/')}
             >HOME</Button>
+
+            &nbsp;
+          <span className="pull-right">&nbsp;</span>
+            <Button
+              className="btn-lg"
+              bsStyle="success"
+              onClick={() => newRoute ('/events')}
+            >LIVE DEMO</Button>
 
         </Jumbotron>
       </div>

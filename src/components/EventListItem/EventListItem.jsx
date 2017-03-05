@@ -1,3 +1,4 @@
+/* global cms */
 /**
  * Created by Chris Dorward on 05/03/2017
  * components/EventList/EventList
@@ -14,17 +15,22 @@ function EventListItem(props) {
   const newRoute = (route) => {
     browserHistory.push(route);
   };
-  const thisClicked = (item, options) => {
-    console.log(`thisClicked ID: ${item.id}`);
-    // console.log(props.eventItemClicked);
+  const thisClicked = (item) => {
+    cms.currentEvent = item;
+    browserHistory.push(`/event/${item.id}`);
   };
+  const nameLength = 38;
+  let shortName = props.eventData.name.substring(0, nameLength);
+  if (shortName.length - nameLength === 0) {
+    shortName = `${shortName}...`;
+  }
   return (
     <Button
       className="event-list-item event-list-detail"
       bsStyle="success"
       onClick={() => thisClicked(props.eventData)}
     >
-      {props.eventData.name}
+      {shortName}
     </Button>
   );
 }

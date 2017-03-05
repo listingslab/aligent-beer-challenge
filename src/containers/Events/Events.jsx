@@ -30,8 +30,8 @@ class Events extends Component {
     }
   }
 
-  eventItemClicked(param, options) {
-    alert(param);
+  eventItemClicked() {
+    console.log('eventItemClicked');
   }
 
   apiEventsCallback(eventsData) {
@@ -67,10 +67,10 @@ class Events extends Component {
             <Col sm={12} md={3} className="left-col">
               <FilterSort
                 eventData={this.sortAndFilter()}
+                eventItemClicked={this.eventItemClicked}
               />
               <EventList
                 eventData={this.sortAndFilter()}
-                eventItemClicked={this.eventItemClicked}
               />
             </Col>
             <Col sm={12} mdOffset={1} md={8} className="right-col">
