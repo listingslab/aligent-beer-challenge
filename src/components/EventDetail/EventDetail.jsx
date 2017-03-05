@@ -18,43 +18,40 @@ function EventDetail() {
     if (images.large !== undefined) {
       img = (<img
         alt="Selected Event Title"
-        src={images.large || '/img/event_images/large.jpg'}
+        src={images.icon || ''}
         className="img-responsive detail-img"
       />);
     }
     content = (
-      <Well>
+      <div>
         <h3>{detailData.name || 'Event Name'}</h3>
-        <div id="event-map" className="current-map panel" />
+
         <Grid>
           <Row className="show-grid">
-            <Col sm={12} md={4} className="about-right">
+
+            <Col sm={12} md={3} >
+              {img}
+              <h4>What?</h4>
+                {detailData.typeDisplay}
+              <h4>When?</h4>
+                {detailData.time}, {detailData.startDate}
+              <h4>Where?</h4>
+                {detailData.venueName}<br />
+                {detailData.streetAddress}<br />
+                {detailData.locality}<br />
+                {detailData.region}
+            </Col>
+
+            <Col sm={12} md={6}>
+              <div id="event-map" className="current-map panel" />
               <div className="event-detail-item">
-                {img}
-                <p><strong>{detailData.price}</strong></p>
+                <h5>{detailData.price}</h5>
                 {detailData.description}
               </div>
             </Col>
-            <Col sm={12} md={8} className="about-left">
-              <h5>What?</h5>
-                <blockquote>
-                  {detailData.typeDisplay}
-                </blockquote>
-              <h5>When?</h5>
-                <blockquote>
-                  {detailData.time}, {detailData.startDate}
-                </blockquote>
-              <h5>Where?</h5>
-                <blockquote>
-                  {detailData.venueName}<br />
-                  {detailData.streetAddress}<br />
-                  {detailData.locality}<br />
-                  {detailData.region}
-                </blockquote>
-            </Col>
           </Row>
         </Grid>
-      </Well>
+      </div>
     );
   } else {
     content = (null);

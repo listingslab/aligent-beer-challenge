@@ -12,6 +12,7 @@ import './FilterSort.scss';
 function FilterSort(props) {
   const onSelectFunc = (selected) => {
     cms.selectedState = selected;
+    cms.currentEvent = undefined;
     browserHistory.push(`/events/${selected.toLowerCase().replace(' ', '-')}`);
   };
   const statesArr = [];
@@ -46,6 +47,10 @@ function FilterSort(props) {
     <div className="filter-sort container">
 
       <div className="filter-dds">
+        <Badge
+          className="badge-success">{props.filteredNum}</Badge> Events in&nbsp;
+          <strong>{filterStateText}</strong>
+          <br /><br />
         <DropdownButton
           onSelect={onSelectFunc}
           bsStyle="default"
@@ -54,10 +59,6 @@ function FilterSort(props) {
           className="filter-dd">
           {statesArr}
         </DropdownButton>
-        <br /><br />
-        <Badge
-          className="badge-success">{props.filteredNum}</Badge> Events in&nbsp;
-          <strong>{filterStateText}</strong>
       </div>
     </div>
   );

@@ -21,10 +21,7 @@ function EventListItem(props) {
   }
   const thisClicked = (item) => {
     cms.currentEvent = item;
-    $('html, body').animate({
-      scrollTop: $('#detail').offset().top
-    }, 'fast');
-
+    $('html, body').animate({ scrollTop: 0 }, 'fast');
     browserHistory.push(`/event/${item.id}`);
   };
   const nameLength = 28;

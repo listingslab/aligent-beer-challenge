@@ -249,6 +249,14 @@ class Events extends Component {
       gridContent = (
         <Grid>
           <Row className="show-grid">
+
+            <Col sm={12} mdOffset={1} md={9} className="right-col">
+              {mapDiv}
+              <EventDetail
+                eventData={this.sortAndFilter()}
+              />
+            </Col>
+
             <Col sm={12} md={2} className="left-col">
               <FilterSort
                 eventData={cms.eventsData.contents.data}
@@ -260,12 +268,7 @@ class Events extends Component {
                 />
               </div>
             </Col>
-            <Col sm={12} mdOffset={1} md={9} className="right-col">
-              {mapDiv}
-              <EventDetail
-                eventData={this.sortAndFilter()}
-              />
-            </Col>
+
           </Row>
         </Grid>
       );
