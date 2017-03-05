@@ -13,7 +13,7 @@ function FilterSort(props) {
     browserHistory.push(route);
   };
   const statesArr = [];
-  const key = 'dkjn';
+  const key = 0;
   statesArr.push(
     <MenuItem
       key={key}
@@ -22,7 +22,8 @@ function FilterSort(props) {
   );
   return (
     <div className="filter-sort container">
-      <h4>Showing <Badge>{props.eventData.length}</Badge> Events</h4>
+      <h4>Showing <Badge
+        className="badge-success">{props.eventData.length}</Badge> Events</h4>
       <div className="filter-dds">
         <DropdownButton
           bsStyle="default"

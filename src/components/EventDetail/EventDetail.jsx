@@ -51,6 +51,7 @@ function EventDetail() {
               <a
                 href={detailData.website}
                 target="_blank"
+                rel="noopener noreferrer"
                 title={detailData.name}
                 className="btn btn-default"
               >
@@ -61,9 +62,7 @@ function EventDetail() {
       </div>
     );
   } else {
-    content = (
-      <div>NO currentEvent</div>
-    );
+    content = (null);
   }
   return (
     <div className="event-detail">

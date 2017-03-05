@@ -16,7 +16,7 @@ class Home extends Component {
     };
     return (
       <div className="home container">
-        <Jumbotron>
+
           <Button
             className="btn btn-lg pull-right"
             bsStyle="success"
@@ -56,7 +56,6 @@ class Home extends Component {
               event (festival, tasting... whatever)
               somewhere interesting in the United States to attend this year.&quot;</p>
           </blockquote>
-        </Jumbotron>
       </div>
     );
   }
