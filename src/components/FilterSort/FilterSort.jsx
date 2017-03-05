@@ -38,23 +38,26 @@ function FilterSort(props) {
     }
   }
 
-  let filterStateText = 'All states...';
+  let filterStateText = 'All States';
   if (cms.selectedState !== undefined) {
     filterStateText = cms.selectedState;
   }
   return (
     <div className="filter-sort container">
-      <h4>Showing <Badge
-        className="badge-success">{props.filteredNum}</Badge> Events</h4>
+
       <div className="filter-dds">
         <DropdownButton
           onSelect={onSelectFunc}
           bsStyle="default"
-          title={filterStateText}
+          title="Select State"
           id="filter-state"
           className="filter-dd">
           {statesArr}
         </DropdownButton>
+        <br /><br />
+        <Badge
+          className="badge-success">{props.filteredNum}</Badge> Events in&nbsp;
+          <strong>{filterStateText}</strong>
       </div>
     </div>
   );

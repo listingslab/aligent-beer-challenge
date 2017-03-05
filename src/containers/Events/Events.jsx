@@ -242,7 +242,7 @@ class Events extends Component {
     if (!this.state.eventsLoaded) {
       loader = (
         <div className="container text-center">
-          <Loader loadingText="Loading Craft Beer Events ..." />
+          <Loader loadingText="Loading Events ..." />
         </div>
       );
     } else {

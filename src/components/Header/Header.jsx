@@ -31,8 +31,8 @@ function Header() {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav onSelect={handleNav}>
-            <NavItem eventKey={'/about'}>ABOUT</NavItem>
             <NavItem eventKey={'/events'}>LIVE DEMO</NavItem>
+            <NavItem eventKey={'/about'}>ABOUT</NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
