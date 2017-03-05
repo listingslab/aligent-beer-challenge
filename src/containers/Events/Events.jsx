@@ -30,8 +30,16 @@ class Events extends Component {
     }
   }
 
-  eventItemClicked() {
-    console.log('eventItemClicked');
+  componentDidMount() {
+    if (this.state.eventsLoaded) {
+      this.renderMap();
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.state.eventsLoaded) {
+      this.renderMap();
+    }
   }
 
   apiEventsCallback(eventsData) {
@@ -44,39 +52,218 @@ class Events extends Component {
   }
 
   sortAndFilter() {
-    return cms.eventsData.contents.data;
+    const allData = cms.eventsData.contents.data;
+    let filteredData = [];
+    if (cms.selectedState !== undefined) {
+      for (let i = 0; i < allData.length; i += 1) {
+        if (cms.selectedState === allData[i].region) {
+          filteredData.push(allData[i]);
+        }
+      }
+    } else {
+      filteredData = allData;
+    }
+    return filteredData;
+  }
+
+  renderMap() {
+    const map = new google.maps.Map(document.getElementById('event-map'), {
+      styles: [
+        {
+            "featureType": "landscape",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                  "saturation": "-100"
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "labels.text",
+            "stylers": [
+                {
+                    "color": "#545454"
+                }
+            ]
+        },
+        {
+            "featureType": "road",
+            "elementType": "labels.text.stroke",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "saturation": "-87"
+                },
+                {
+                    "lightness": "-40"
+                },
+                {
+                    "color": "#ffffff"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway",
+            "elementType": "geometry.stroke",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway.controlled_access",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "color": "#f0f0f0"
+                },
+                {
+                    "saturation": "-22"
+                },
+                {
+                    "lightness": "-16"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway.controlled_access",
+            "elementType": "geometry.stroke",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "road.highway.controlled_access",
+            "elementType": "labels.icon",
+            "stylers": [
+                {
+                    "visibility": "on"
+                }
+            ]
+        },
+        {
+            "featureType": "road.arterial",
+            "elementType": "geometry.stroke",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+        {
+            "featureType": "road.local",
+            "elementType": "geometry.stroke",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
+          {
+            "featureType": "water",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "saturation": "-52"
+                },
+                {
+                    "hue": "#00e4ff"
+                },
+                {
+                    "lightness": "-16"
+                }
+            ]
+        }
+    ]
+    });
+    let eventsArr = this.sortAndFilter();
+    if (cms.currentEvent !== undefined){
+      eventsArr = [cms.currentEvent];
+    }
+    const latlngbounds = new google.maps.LatLngBounds();
+    for (let i = 0; i < eventsArr.length; i += 1) {
+      if (eventsArr[i].countryIsoCode === 'US') {
+        const images = eventsArr[i].images || '';
+        const icon = '/img/googlemap.png';
+        const place = { lat: eventsArr[i].latitude, lng: eventsArr[i].longitude };
+        const marker = new google.maps.Marker({
+          position: place,
+          icon,
+          map
+        });
+        latlngbounds.extend(marker.position);
+      }
+    }
+    map.setCenter(latlngbounds.getCenter());
+    map.fitBounds(latlngbounds);
   }
 
   render() {
-    const newRoute = (route) => {
-      browserHistory.push(route);
-    };
-    let content = null;
     let loader = null;
     let gridContent = null;
+    let mapDiv = null;
+    if (cms.currentEvent === undefined){
+      mapDiv = (
+        <div>
+          <div id="event-map" className="panel no-current-map" />
+        </div>
+      );
+    }
     if (!this.state.eventsLoaded) {
       loader = (
         <div className="container text-center">
-          <Loader loadingText="Loading Craft Beer Events ..." />
+          <Loader loadingText="Loading Events ..." />
         </div>
       );
     } else {
       gridContent = (
         <Grid>
           <Row className="show-grid">
-            <Col sm={12} md={3} className="left-col">
+            <Col sm={12} md={2} className="left-col">
               <FilterSort
-                eventData={this.sortAndFilter()}
-                eventItemClicked={this.eventItemClicked}
+                eventData={cms.eventsData.contents.data}
+                filteredNum={this.sortAndFilter().length}
               />
-              <EventList
-                eventData={this.sortAndFilter()}
-              />
+              <div className="scrollable-events">
+                <EventList
+                  eventData={this.sortAndFilter()}
+                />
+              </div>
             </Col>
-            <Col sm={12} mdOffset={1} md={8} className="right-col">
+            <Col sm={12} mdOffset={1} md={9} className="right-col">
+              {mapDiv}
               <EventDetail
                 eventData={this.sortAndFilter()}
-                eventItemClicked={this.eventItemClicked}
               />
             </Col>
           </Row>
@@ -98,19 +285,3 @@ class Events extends Component {
 }
 
 export default Events;
-
-/*
-Only States which have events show up in this dropdown
-
-<Link
-  to="/free"
-  className="btn btn-success pull-right"
->FREE!</Link>
-
-<span className="pull-right">&nbsp;</span>
-  <Button
-    className="btn-lg pull-right"
-    bsStyle="default"
-    onClick={() => newRoute('/')}
-  >HOME</Button>
-*/

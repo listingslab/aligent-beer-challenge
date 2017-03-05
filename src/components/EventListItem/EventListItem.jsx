@@ -5,32 +5,43 @@
  */
 
 import React from 'react';
-import { Alert, Button } from 'react-bootstrap';
-import { Link, browserHistory } from 'react-router';
-
+import { Button } from 'react-bootstrap';
+import $ from 'jquery';
+import { browserHistory } from 'react-router';
 
 import './EventListItem.scss';
 
 function EventListItem(props) {
-  const newRoute = (route) => {
-    browserHistory.push(route);
-  };
+  let className = 'event-list-item event-list-detail';
+  if (cms.currentEvent !== undefined) {
+    if (cms.currentEvent.id === props.eventData.id){
+      console.log('currentEvent');
+      className = `${className} active`;
+    }
+  }
   const thisClicked = (item) => {
     cms.currentEvent = item;
+    $('html, body').animate({
+      scrollTop: $('#detail').offset().top
+    }, 'fast');
+
     browserHistory.push(`/event/${item.id}`);
   };
-  const nameLength = 38;
+  const nameLength = 28;
   let shortName = props.eventData.name.substring(0, nameLength);
   if (shortName.length - nameLength === 0) {
     shortName = `${shortName}...`;
   }
   return (
     <Button
-      className="event-list-item event-list-detail"
-      bsStyle="success"
+      className={className}
+      bsStyle="primary"
       onClick={() => thisClicked(props.eventData)}
     >
-      {shortName}
+      <strong>{shortName}</strong>
+      <br />
+        {props.eventData.locality},
+        {props.eventData.region}
     </Button>
   );
 }
@@ -38,12 +49,11 @@ function EventListItem(props) {
 export default EventListItem;
 
 /*
-
 <div><em>What?</em> {props.eventData.typeDisplay}</div>
 <div><em>When?</em> {props.eventData.time}, {props.eventData.startDate}</div>
-
 <div><em>Where?</em> {props.eventData.venueName},
 {props.eventData.streetAddress},
-{props.eventData.locality},
-{props.eventData.region}</div>
+
+{props.eventData.typeDisplay}
+</div>
 */

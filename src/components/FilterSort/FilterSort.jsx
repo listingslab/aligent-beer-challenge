@@ -1,3 +1,4 @@
+/* global cms */
 /**
  * Created by Chris Dorward on 03/03/2017
  * components/FilterSort/FilterSort
@@ -9,51 +10,57 @@ import { browserHistory } from 'react-router';
 import './FilterSort.scss';
 
 function FilterSort(props) {
-  const newRoute = (route) => {
-    browserHistory.push(route);
+  const onSelectFunc = (selected) => {
+    cms.selectedState = selected;
+    browserHistory.push(`/events/${selected.toLowerCase().replace(' ', '-')}`);
   };
   const statesArr = [];
-  const key = 'dkjn';
-  statesArr.push(
-    <MenuItem
-      key={key}
-      eventKey="texas"
-      >texas</MenuItem>
-  );
+  const uniqueStates = [];
+  for (let i = 0; i < props.eventData.length; i += 1) {
+    if (props.eventData[i].countryIsoCode === 'US') {
+      const key = `state_${i}`;
+      let isUnique = true;
+      for (let j = 0; j < uniqueStates.length; j += 1) {
+        if (uniqueStates[j] === props.eventData[i].region) {
+          isUnique = false;
+          break;
+        }
+      }
+      if (isUnique) {
+        uniqueStates.push(props.eventData[i].region);
+        statesArr.push(
+          <MenuItem
+            key={key}
+            eventKey={props.eventData[i].region}
+            >{props.eventData[i].region}</MenuItem>
+        );
+      }
+    }
+  }
+
+  let filterStateText = 'All States';
+  if (cms.selectedState !== undefined) {
+    filterStateText = cms.selectedState;
+  }
   return (
     <div className="filter-sort container">
-      <h4>Showing <Badge>{props.eventData.length}</Badge> Events</h4>
+
       <div className="filter-dds">
         <DropdownButton
+          onSelect={onSelectFunc}
           bsStyle="default"
-          title="Only show events in..."
+          title="Select State"
           id="filter-state"
           className="filter-dd">
           {statesArr}
         </DropdownButton>
-        <DropdownButton
-          bsStyle="default"
-          title="Order by..."
-          id="sort-by"
-          className="sort-dd">
-          <MenuItem eventKey="sort-price">Price</MenuItem>
-          <MenuItem eventKey="sort-name">Name</MenuItem>
-        </DropdownButton>
+        <br /><br />
+        <Badge
+          className="badge-success">{props.filteredNum}</Badge> Events in&nbsp;
+          <strong>{filterStateText}</strong>
       </div>
     </div>
   );
 }
 
 export default FilterSort;
-
-/*
-  <DropdownButton
-    bsStyle="danger"
-    title="Select Price"
-    id="dropdown-state">
-    <MenuItem eventKey="price-free">FREE</MenuItem>
-    <MenuItem eventKey="price-1-10">$1 - $10</MenuItem>
-    <MenuItem eventKey="price-11-99">$11 - $99</MenuItem>
-    <MenuItem eventKey="price-100plus">$100 +</MenuItem>
-  </DropdownButton>
-*/

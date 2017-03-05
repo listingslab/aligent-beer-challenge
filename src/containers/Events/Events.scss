@@ -9,9 +9,34 @@
   .left-col {
     /* border:1px solid green;
     overflow: hidden; */
+
+    .scrollable-events{
+      height: 550px;
+      width: 280px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
   }
 
   .right-col {
     /* border:1px solid orange;  */
+    .current-map {
+      height: 350px;
+      border-radius: 5px;
+    }
+
+    .no-current-map{
+      height: 640px;
+    }
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .events {
+    .left-col {
+      .scrollable-events{
+      }
+    }
   }
 }

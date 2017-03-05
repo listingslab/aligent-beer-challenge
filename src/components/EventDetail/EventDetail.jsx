@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { Panel } from 'react-bootstrap';
+import { Well, Panel, Grid, Col, Row } from 'react-bootstrap';
 
 import './EventDetail.scss';
 
@@ -14,59 +14,54 @@ function EventDetail() {
   if (cms.currentEvent !== undefined) {
     const detailData = cms.currentEvent;
     const images = detailData.images || '';
+    let img = null;
+    if (images.large !== undefined) {
+      img = (<img
+        alt="Selected Event Title"
+        src={images.large || '/img/event_images/large.jpg'}
+        className="img-responsive detail-img"
+      />);
+    }
     content = (
-      <div>
-        <Panel>
-          <h3>{detailData.name || 'Event Name'}</h3>
-          <div className="detail-left">
-            <div className="event-detail-item">
-                <img
-                  alt="Selected Event Title"
-                  src={images.large || '/img/event_images/large.jpg'}
-                  className="img-responsive detail-img"
-                />
-                <strong>{detailData.price}</strong>
+      <Well>
+        <h3>{detailData.name || 'Event Name'}</h3>
+        <div id="event-map" className="current-map panel" />
+        <Grid>
+          <Row className="show-grid">
+            <Col sm={12} md={4} className="about-right">
+              <div className="event-detail-item">
+                {img}
+                <p><strong>{detailData.price}</strong></p>
                 {detailData.description}
-            </div>
-          </div>
-          <div className="detail-right">
-            <h5>What?</h5>
-            <blockquote>
-              {detailData.typeDisplay}
-            </blockquote>
-            <h5>When?</h5>
-            <blockquote>
-              {detailData.time}, {detailData.startDate}
-            </blockquote>
-            <h5>Where?</h5>
-            <blockquote>
-              {detailData.venueName}<br />
-              {detailData.streetAddress}<br />
-              {detailData.locality}<br />
-              {detailData.region}
-            </blockquote>
-          </div>
-          <div className="detail-clear" />
-            <div className="detail-footer pull-right">
-              <a
-                href={detailData.website}
-                target="_blank"
-                title={detailData.name}
-                className="btn btn-default"
-              >
-                <span className="glyphicon glyphicon-globe" aria-hidden="true" />&nbsp;Website
-              </a>
-            </div>
-        </Panel>
-      </div>
+              </div>
+            </Col>
+            <Col sm={12} md={8} className="about-left">
+              <h5>What?</h5>
+                <blockquote>
+                  {detailData.typeDisplay}
+                </blockquote>
+              <h5>When?</h5>
+                <blockquote>
+                  {detailData.time}, {detailData.startDate}
+                </blockquote>
+              <h5>Where?</h5>
+                <blockquote>
+                  {detailData.venueName}<br />
+                  {detailData.streetAddress}<br />
+                  {detailData.locality}<br />
+                  {detailData.region}
+                </blockquote>
+            </Col>
+          </Row>
+        </Grid>
+      </Well>
     );
   } else {
-    content = (
-      <div>NO currentEvent</div>
-    );
+    content = (null);
   }
+
   return (
-    <div className="event-detail">
+    <div id="detail" className="event-detail">
       {content}
     </div>
   );
