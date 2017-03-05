@@ -19,22 +19,35 @@ class Home extends Component {
 
         <Grid>
           <Row className="show-grid">
-            <Col sm={12} md={4} className="about-right">
-              <h2>Aligent Craft<br />Beer Challenge</h2>
-
+            <Col sm={12} md={5} className="about-right">
+              <h3>Aligent Craft Beer Challenge</h3>
+                <img
+                  alt="Aligent Craft Beer Challenge"
+                  src="/img/aligent-beer-challenge.png"
+                  className="home-logo pull-left"
+                  />
                 <ul>
                     <li>Loading JSON from a remote RestFUL API Using a PHP proxy</li>
-                    <li>Rendering to browser using Bootstrap / CSS3 / Sass / HTML5 etc</li>
+                    <li>Rendering a React JS Single page application to browser
+                      using Bootstrap / CSS3 / Sass / HTML5 etc</li>
                 </ul>
 
                 <Button
-                  className="btn btn-lg text-center"
-                  bsStyle="success"
+                  className="btn text-center"
+                  bsStyle="default"
+                  onClick={() => newRoute('/about')}
+                >FIND OUT MORE</Button>
+              &nbsp;
+                <Button
+                  className="btn text-center"
+                  bsStyle="primary"
                   onClick={() => newRoute('/events')}
                 >LIVE DEMO</Button>
+
             </Col>
-            <Col sm={12} md={8} className="about-left">
-              <h3>Every app has a story, what&apos;s this one&apos;s?</h3>
+            <Col sm={12} md={7} className="about-left">
+              <h3>&nbsp;</h3>
+              <h4>Every app has a story, what&apos;s this one&apos;s?</h4>
 
                 <blockquote>
                   <p>
@@ -48,11 +61,11 @@ class Home extends Component {
                   frameworks you would like to achieve the task.</p>
                 </blockquote>
 
-                <h3>Let&apos;s break that down to an Agile User Story.</h3>
+                <h4>Break it down to an Agile User Story</h4>
                 <blockquote>
                   <p>&quot;As a user I want to be able to be able to find a craft-beer related
                     event (festival, tasting... whatever)
-                    somewhere interesting in the United States to attend this year.&quot;</p>
+                    somewhere interesting in the United States to attend.&quot;</p>
                 </blockquote>
             </Col>
 
