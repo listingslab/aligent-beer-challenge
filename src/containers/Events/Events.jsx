@@ -252,8 +252,8 @@ class Events extends Component {
           <Row className="show-grid">
             <Col sm={12} md={3} className="left-col">
               <FilterSort
-                eventData={this.sortAndFilter()}
-                eventItemClicked={this.eventItemClicked}
+                eventData={cms.eventsData.contents.data}
+                filteredNum={this.sortAndFilter().length}
               />
               <EventList
                 eventData={this.sortAndFilter()}
@@ -263,7 +263,6 @@ class Events extends Component {
               {mapDiv}
               <EventDetail
                 eventData={this.sortAndFilter()}
-                eventItemClicked={this.eventItemClicked}
               />
             </Col>
           </Row>

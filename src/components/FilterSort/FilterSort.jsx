@@ -38,14 +38,14 @@ function FilterSort(props) {
     }
   }
 
-  let filterStateText = 'Only show events in...';
+  let filterStateText = 'All states...';
   if (cms.selectedState !== undefined) {
     filterStateText = cms.selectedState;
   }
   return (
     <div className="filter-sort container">
       <h4>Showing <Badge
-        className="badge-success">{props.eventData.length}</Badge> Events</h4>
+        className="badge-success">{props.filteredNum}</Badge> Events</h4>
       <div className="filter-dds">
         <DropdownButton
           onSelect={onSelectFunc}
@@ -54,14 +54,6 @@ function FilterSort(props) {
           id="filter-state"
           className="filter-dd">
           {statesArr}
-        </DropdownButton>
-        <DropdownButton
-          bsStyle="default"
-          title="Order..."
-          id="sort-by"
-          className="sort-dd">
-          <MenuItem eventKey="sort-ascending">Ascending</MenuItem>
-          <MenuItem eventKey="sort-decending">Decending</MenuItem>
         </DropdownButton>
       </div>
     </div>
