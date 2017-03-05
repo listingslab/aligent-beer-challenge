@@ -28,12 +28,25 @@ function FilterSort(props) {
         }
       }
       if (isUnique) {
-        uniqueStates.push(props.eventData[i].region);
+        let stateName = props.eventData[i].region;
+        if (stateName === 'NC') {
+          stateName = 'North Carolina';
+        }
+        if (stateName === 'OR') {
+          stateName = 'Oregon';
+        }
+        if (stateName === 'CA') {
+          stateName = 'California';
+        }
+        if (stateName === 'TX') {
+          stateName = 'Texas';
+        }
+        uniqueStates.push(stateName);
         statesArr.push(
           <MenuItem
             key={key}
-            eventKey={props.eventData[i].region}
-            >{props.eventData[i].region}</MenuItem>
+            eventKey={stateName}
+            >{stateName}</MenuItem>
         );
       }
     }

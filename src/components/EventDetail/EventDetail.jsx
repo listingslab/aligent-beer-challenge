@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { Well, Panel, Grid, Col, Row } from 'react-bootstrap';
+import { PageHeader, Well, Panel, Grid, Col, Row } from 'react-bootstrap';
 
 import './EventDetail.scss';
 
@@ -24,8 +24,7 @@ function EventDetail() {
     }
     content = (
       <div>
-        <h3>{detailData.name || 'Event Name'}</h3>
-
+        <PageHeader>{detailData.name || 'Event Name'}</PageHeader>
         <Grid>
           <Row className="show-grid">
 

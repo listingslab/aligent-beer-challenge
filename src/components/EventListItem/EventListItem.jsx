@@ -15,7 +15,6 @@ function EventListItem(props) {
   let className = 'event-list-item event-list-detail';
   if (cms.currentEvent !== undefined) {
     if (cms.currentEvent.id === props.eventData.id){
-      console.log('currentEvent');
       className = `${className} active`;
     }
   }

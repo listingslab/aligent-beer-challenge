@@ -225,7 +225,14 @@ class Events extends Component {
       }
     }
     map.setCenter(latlngbounds.getCenter());
-    map.fitBounds(latlngbounds);
+    if (cms.currentEvent !== undefined){
+      map.setZoom(6);
+    } else {
+      map.fitBounds(latlngbounds);
+    }
+    if (eventsArr.length === 1){
+      map.setZoom(6);
+    }
   }
 
   render() {
