@@ -23,20 +23,17 @@ class Home extends Component {
             src="/img/aligent-beer-challenge.png"
             className="home-logo"
           />
-          <h1>Aligent Beer Challenge</h1>
-
-          <p>Click LIVE DEMO to see the following features...</p>
+        <h2>Aligent Beer Challenge</h2>
           <ul>
               <li>Loading JSON from a remote RestFUL API</li>
               <li>Using a PHP proxy to do so</li>
               <li>Bootstrap / CSS3 / Sass / HTML5 etc</li>
           </ul>
-
           <Button
             className="btn btn-lg warning"
             bsStyle="success"
             onClick={() => newRoute('/events')}
-          >LIVE DEMO</Button>
+          >TRY DEMO</Button>
 
         <h3>Every app has a story, what&apos;s this one&apos;s?</h3>
           <blockquote>

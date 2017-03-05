@@ -4,35 +4,33 @@
  */
 
 import React from 'react';
-import { DropdownButton, MenuItem, Panel, Badge } from 'react-bootstrap';
+import { Alert, Button } from 'react-bootstrap';
 import { Link, browserHistory } from 'react-router';
 
 
 import './EventListItem.scss';
 
 function EventListItem(props) {
-  //console.log(props.eventData);
   const newRoute = (route) => {
     browserHistory.push(route);
   };
-  const eventItemClicked = (item) => {
-    console.log(item);
+  const thisClicked = (item, options) => {
+    console.log(`ID: ${item.id}`);
+    console.log(props.eventData);
   };
   return (
-    <div className="event-list-item">
+    <Button
+      className="event-list-item"
+      bsStyle="success"
+    >
       <strong>{props.eventData.name}</strong>
-
       <div
         className="event-list-detail"
-        onClick={() => eventItemClicked(props.eventData.id)}
+        onClick={() => thisClicked(props.eventData)}
       >
 
-        <div><em>Where?</em> {props.eventData.venueName},
-        {props.eventData.streetAddress},
-        {props.eventData.locality},
-        {props.eventData.region}</div>
       </div>
-    </div>
+    </Button>
   );
 }
 
@@ -41,4 +39,9 @@ export default EventListItem;
 /*
 <div><em>What?</em> {props.eventData.typeDisplay}</div>
 <div><em>When?</em> {props.eventData.time}, {props.eventData.startDate}</div>
+
+<div><em>Where?</em> {props.eventData.venueName},
+{props.eventData.streetAddress},
+{props.eventData.locality},
+{props.eventData.region}</div>
 */

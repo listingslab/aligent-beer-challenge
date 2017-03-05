@@ -8,7 +8,7 @@ import './Footer.scss';
 
 function Footer() {
   return (
-    <div className="footer container">
+    <div className="footer container pull-right">
         <a
           href="https://github.com/listingslab/aligent-beer-challenge"
           rel="noopener noreferrer"
@@ -21,7 +21,7 @@ function Footer() {
             width="50"
           />
       </a>
-      <br />
+
       <small>version 1.1.0, by listingslab</small>
       <br />
     </div>

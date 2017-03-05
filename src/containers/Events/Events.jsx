@@ -30,6 +30,10 @@ class Events extends Component {
     }
   }
 
+  eventItemClicked(param, options) {
+    alert(param);
+  }
+
   apiEventsCallback(eventsData) {
     this.eventsArr = eventsData.contents.data;
     cms.eventsData = eventsData;
@@ -64,9 +68,10 @@ class Events extends Component {
               <FilterSort />
               <EventList
                 eventData={this.sortAndFilter()}
+                eventItemClicked={this.eventItemClicked}
               />
             </Col>
-            <Col sm={12} md={9} className="right-col">
+            <Col sm={12} mdOffset={1} md={8} className="right-col">
               <EventDetail
                 eventData={this.sortAndFilter()}
               />

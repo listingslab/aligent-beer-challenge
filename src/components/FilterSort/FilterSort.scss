@@ -6,11 +6,14 @@
 @import '../../styles/vars.scss';
 
 .filter-sort {
+  .filter-dd {
+    margin-right: 5px;
+    width: 170px;
+    text-align: left;
+  }
 
-  .filter-sort-dd{
-    /* border: 1px solid red; */
-    margin-bottom: 5px;
-    width:215px;
+  .sort-dd {
+    width: 110px;
     text-align: left;
   }
 }

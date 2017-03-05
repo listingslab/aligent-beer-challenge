@@ -60,7 +60,7 @@ function EventDetail() {
             href={detailData.website}
             target="_blank"
             title={detailData.name}
-            className="btn btn-primary"
+            className="btn btn-success"
           >
             <span className="glyphicon glyphicon-globe" aria-hidden="true" />&nbsp;Website
           </a>

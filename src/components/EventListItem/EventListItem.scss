@@ -7,16 +7,12 @@
 
 .event-list-item{
   display: block;
-  width: 215px;
+  width: 345px;
   margin-bottom: 5px;
   text-align: left;
-  border: 1px solid #ddd;
-  background-color: #fff;
-  padding: 5px;
+  overflow: hidden;
   cursor: pointer;
 }
 
 .event-list-item:hover{
-  border: 1px solid #7a7a7a;
-  background-color: #eee;
 }

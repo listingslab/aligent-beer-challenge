@@ -23,19 +23,17 @@ function FilterSort() {
             bsStyle="primary"
             title="Only show events in..."
             id="filter-state"
-            className="filter-sort-dd">
+            className="filter-dd">
             <MenuItem eventKey="texas">texas</MenuItem>
             <MenuItem eventKey="new-england">new-england</MenuItem>
             <MenuItem eventKey="california">california</MenuItem>
           </DropdownButton>
-          <br />
-        </div>
-        <div className="sort">
+
           <DropdownButton
             bsStyle="primary"
             title="Order by..."
             id="sort-by"
-            className="filter-sort-dd">
+            className="sort-dd">
             <MenuItem eventKey="sort-price">Price</MenuItem>
             <MenuItem eventKey="sort-name">Name</MenuItem>
           </DropdownButton>

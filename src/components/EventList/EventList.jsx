@@ -12,7 +12,6 @@ import EventListItem from '../../components/EventListItem/EventListItem';
 import './EventList.scss';
 
 function EventList(props) {
-  console.log('Re-rendering the Event List');
   // console.log(props.eventData);
   const newRoute = (route) => {
     browserHistory.push(route);
@@ -24,10 +23,10 @@ function EventList(props) {
       <EventListItem
         key={key}
         eventData={props.eventData[i] || {}}
+        eventItemClicked={props.eventItemClicked || {}}
       />
     );
   }
-
   return (
     <div className="event-list container">
       <h4>Showing <Badge>{props.eventData.length}</Badge> Events</h4>
